@@ -1,6 +1,6 @@
 # Menu Generator
 
-## Descripcion 
+## Descripción 
 
 ### Esta aplicación trata de cubrir las necesidades organizativas en la planificación de menús semanales para pequeños negocios gastronómicos o para uso particular.
 
@@ -26,11 +26,12 @@
 | Ruta          | Componente            | Permisos  | Comportamiento                                         | 
 | ------------- |:---------------------:| --------- |:------------------------------------------------------:|
 | /             | Página principal      | público   |Página de inicio                                        | 
-|/signup        | SignupPage            |           |Formulario de registro                                  |
+|/signup        | Página registro           |           |Formulario de registro                                  |
 |/login         | Inicio de sesión      |           |Formulario de inicio de sesión                          |
 |/recipe/add    | Agregar receta        | Privado   |Formulario para añadir receta                           |
 |/recipe/:id    | Filtrar por receta    | Privado   |filtrado por receta con detalles                        |
 |/profile       | Página de perfil      | Privado   |Perfil de usuario con menus semanales y recetas creadas |
+|/menu       | Página de menu      | Privado   |  |
 
 
 ## Servicios
@@ -43,7 +44,7 @@
 
 * Servicio de recetas 
 
-   - recipesApi.list ()
+   - recipesApi.list()
    - recipesApi.addRecipe (recipe)
    - recipesApi.getRecipeDetails (recipeId)
    - recipesApi.editRecipe (recipeId, recipeBody)
@@ -53,52 +54,104 @@
 
    - menuApi.randomMenu(menuBody)
    - menuApi.getMenu()
-   - menuApi.editMenu(recipeId, menuBody)
-
+   - menuApi.editMenu(menuId, menuBody)
 
 ### Servidor / Backend
 
 ## Modelos
 
 # Modelo usuario
-
+```
 {
   username: {type: String, required: true },
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   recipes: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ]
+  menu: [ { type: mongoose.Schema.Types.ObjectId, ref: "menu" } ]
 }
-
+```
 # Modelo Receta
-
+```
 {
   name: String,
   description: String,
+  category: array,
   ingredients: [],
   owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
 },
-
+```
 # Modelo menu
-
+```
 {
-monday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-tuesday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-wednesday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }], 
-thursday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-friday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-saturday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-sundau: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-
-owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
+monday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+tuesday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+wednesday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+thursday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+friday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+saturday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+sunday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
 },
 
+owner:  { type: mongoose.Schema.Types.ObjectId, ref: "user" } ,
+},
+```
 ### API Endpoints (rutas backend)
 
 | HTTP Method         | URL            | Request Body  | Success status                                        |  Error Status  | Description  |
-| ------------- |:---------------------:| --------- |:------------------------------------------------------:|   público    | público   |
-| post         | /auth/signup      | {username, email, password}  |201                                      | 404    | 	Verifica si los campos no están vacíos (422) y el usuario no existe (409), luego crea un usuario con contraseña cifrada y almacena el usuario en la sesión   |
-|/signup        | SignupPage            |           |Formulario de registro                                  |público    | público   |
-|/login         | Inicio de sesión      |           |Formulario de inicio de sesión                          |público    | público   |
-|/recipe/add    | Agregar receta        | Privado   |Formulario para añadir receta                           |público    | público   |
-|/recipe/:id    | Filtrar por receta    | Privado   |filtrado por receta con detalles                        |público    | público   |
-|/profile       | Página de perfil      | Privado   |Perfil de usuario con menus semanales y recetas creadas |público    | público   |
+| ------------- |:---------------------:| --------- |:------------------------------------------------------: | :--------------: |:---------------------: |
+| POST         | /auth/signup      | {username, email, password}  |201                                      | 404    | 	Verifica si los campos no están vacíos (422) y el usuario no existe (409), luego crea un usuario con contraseña cifrada y almacena el usuario en la sesión   |
+| POST | /auth/login | {email, password} | 200 | 401 | Comprueba si los campos no están vacíos (422), si el usuario existe (404) y si la contraseña coincide (404), almacena al usuario en la sesión. |
+| POST | /auth/logout | (vacio) | 204 | 400 | Cierra la sesión del usuario |
+| GET | /api/recipes |  |  | 400 | Servir todas las recetas |
+| GET | /api/recipes/:recipeId | {id} |  |  | Servir una receta en concreto |
+| POST | /api/recipe | 	{title, description, ingredients} | 201 | 400 | Crea y guarda una nueva receta |
+| PUT | /api/recipe/:recipeId | {title, description, ingredients} | 200 | 400 | Edita una receta |
+| DELETE | /api/recipe/:recipeId | {id} | 201 | 400 | Elimina una receta |
+| POST | /api/menu | {cantidad de primeros platos, cantidad de segundos platos, cantidad de postres, que dias de la semana } | 200 | 404 | Crea una nueva semana de menus con recetas aleatorias |
+| get | /api/menu/:menuId | {id} | 201 | 400 | Sirve el menu especificado |
+### Reserva
+| HTTP Method         | URL            | Request Body  | Success status                                        |  Error Status  | Description  |
+| ------------- |:---------------------:| --------- |:------------------------------------------------------: | :--------------: |:---------------------: |
+| PUT | /api/menu/:menuId | {recipeId} | 200 | 400 | Agrega una receta manualmente al menu semanal |
+| DELETE | /api/menu/:menuId | {recipeId} | 200 | 400 | Elimina una receta manualmente al menu semanal |
+
+# Links
+
+### Git
+
+[FrontEnd repository](https://github.com/TomasAldea/MenuGenerator-Front)
+
+[BackEnd repository](https://github.com/TomasAldea/MenuGenerator-Back)
+
+### Slides
+
+[Go to slides](https://docs.google.com/presentation/d/137A_nqi967l913VkzPaCJy2Ddk5FsvsaW0PEuKLcxJY/edit#slide=id.p)
+
+![coocking](https://media1.giphy.com/media/ZeRYb8bhr6NbO6lac0/giphy.gif)
