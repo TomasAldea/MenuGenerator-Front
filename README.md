@@ -26,11 +26,12 @@
 | Ruta          | Componente            | Permisos  | Comportamiento                                         | 
 | ------------- |:---------------------:| --------- |:------------------------------------------------------:|
 | /             | Página principal      | público   |Página de inicio                                        | 
-|/signup        | SignupPage            |           |Formulario de registro                                  |
+|/signup        | Página registro           |           |Formulario de registro                                  |
 |/login         | Inicio de sesión      |           |Formulario de inicio de sesión                          |
 |/recipe/add    | Agregar receta        | Privado   |Formulario para añadir receta                           |
 |/recipe/:id    | Filtrar por receta    | Privado   |filtrado por receta con detalles                        |
 |/profile       | Página de perfil      | Privado   |Perfil de usuario con menus semanales y recetas creadas |
+|/menu       | Página de menu      | Privado   |  |
 
 
 ## Servicios
@@ -53,8 +54,7 @@
 
    - menuApi.randomMenu(menuBody)
    - menuApi.getMenu()
-   - menuApi.editMenu(recipeId, menuBody)
-
+   - menuApi.editMenu(menuId, menuBody)
 
 ### Servidor / Backend
 
@@ -67,6 +67,7 @@
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   recipes: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ]
+  menu: [ { type: mongoose.Schema.Types.ObjectId, ref: "menu" } ]
 }
 ```
 # Modelo Receta
@@ -74,6 +75,7 @@
 {
   name: String,
   description: String,
+  category: array,
   ingredients: [],
   owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
 },
@@ -81,15 +83,43 @@
 # Modelo menu
 ```
 {
-monday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-tuesday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-wednesday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }], 
-thursday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-friday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-saturday: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
-sundau: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+monday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+tuesday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+wednesday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+thursday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+friday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+saturday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
+sunday: monday: {
+ primeros: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+ segundos: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" }],
+ postres: [{ type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ],
+},
 
-owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
+owner:  { type: mongoose.Schema.Types.ObjectId, ref: "user" } ,
 },
 ```
 ### API Endpoints (rutas backend)
@@ -105,6 +135,7 @@ owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
 | PUT | /api/recipe/:recipeId | {title, description, ingredients} | 200 | 400 | Edita una receta |
 | DELETE | /api/recipe/:recipeId | {id} | 201 | 400 | Elimina una receta |
 | POST | /api/menu | {cantidad de primeros platos, cantidad de segundos platos, cantidad de postres, que dias de la semana } | 200 | 404 | Crea una nueva semana de menus con recetas aleatorias |
+| get | /api/menu/:menuId | {id} | 201 | 400 | Sirve el menu especificado |
 ### Reserva
 | HTTP Method         | URL            | Request Body  | Success status                                        |  Error Status  | Description  |
 | ------------- |:---------------------:| --------- |:------------------------------------------------------: | :--------------: |:---------------------: |
