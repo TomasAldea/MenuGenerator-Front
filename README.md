@@ -122,3 +122,5 @@ owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
 ### Slides
 
 [Go to slides](https://docs.google.com/presentation/d/137A_nqi967l913VkzPaCJy2Ddk5FsvsaW0PEuKLcxJY/edit#slide=id.p)
+
+![Alt text](coocking.gif)
