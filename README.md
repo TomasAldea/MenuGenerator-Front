@@ -105,18 +105,20 @@ owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
 | PUT | /api/recipe/:recipeId | {title, description, ingredients} | 200 | 400 | Edita una receta |
 | DELETE | /api/recipe/:recipeId | {id} | 201 | 400 | Elimina una receta |
 | POST | /api/menu | {cantidad de primeros platos, cantidad de segundos platos, cantidad de postres, que dias de la semana } | 200 | 404 | Crea una nueva semana de menus con recetas aleatorias |
-# Reserva
+### Reserva
+| HTTP Method         | URL            | Request Body  | Success status                                        |  Error Status  | Description  |
 | ------------- |:---------------------:| --------- |:------------------------------------------------------: | :--------------: |:---------------------: |
 | PUT | /api/menu/:menuId | {recipeId} | 200 | 400 | Agrega una receta manualmente al menu semanal |
 | DELETE | /api/menu/:menuId | {recipeId} | 200 | 400 | Elimina una receta manualmente al menu semanal |
 
-### Links
+# Links
 
-# Git
+### Git
 
-[FrontEnd repo](https://github.com/TomasAldea/MenuGenerator-Front)
-[BackEnd repo](https://github.com/TomasAldea/MenuGenerator-Back)
+[FrontEnd repository](https://github.com/TomasAldea/MenuGenerator-Front)
 
-# Slides
+[BackEnd repository](https://github.com/TomasAldea/MenuGenerator-Back)
 
-(https://docs.google.com/presentation/d/137A_nqi967l913VkzPaCJy2Ddk5FsvsaW0PEuKLcxJY/edit#slide=id.p)
+### Slides
+
+[Go to slides](https://docs.google.com/presentation/d/137A_nqi967l913VkzPaCJy2Ddk5FsvsaW0PEuKLcxJY/edit#slide=id.p)
