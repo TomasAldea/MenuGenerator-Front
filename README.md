@@ -61,14 +61,14 @@
 ## Modelos
 
 # Modelo usuario
-
+```
 {
   username: {type: String, required: true },
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   recipes: [ { type: mongoose.Schema.Types.ObjectId, ref: "recipe" } ]
 }
-
+```
 # Modelo Receta
 
 {
@@ -95,7 +95,7 @@ owner: [ { type: mongoose.Schema.Types.ObjectId, ref: "user" } ],
 ### API Endpoints (rutas backend)
 
 | HTTP Method         | URL            | Request Body  | Success status                                        |  Error Status  | Description  |
-| ------------- |:---------------------:| --------- |:------------------------------------------------------:|   público    | público   |
+| ------------- |:---------------------:| --------- |:------------------------------------------------------: | :--------------: |:---------------------: |
 | post         | /auth/signup      | {username, email, password}  |201                                      | 404    | 	Verifica si los campos no están vacíos (422) y el usuario no existe (409), luego crea un usuario con contraseña cifrada y almacena el usuario en la sesión   |
 |/signup        | SignupPage            |           |Formulario de registro                                  |público    | público   |
 |/login         | Inicio de sesión      |           |Formulario de inicio de sesión                          |público    | público   |
