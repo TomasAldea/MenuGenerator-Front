@@ -1,6 +1,6 @@
 import React from "react";
+import { SignupForm } from "../../components/Signup/Signup";
 
-export function Home () {
-
-    return <h1>Home page</h1>
+export function Home() {
+  return <SignupForm />;
 }
