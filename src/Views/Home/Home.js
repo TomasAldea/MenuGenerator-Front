@@ -1,6 +1,5 @@
 import React from "react";
-import { SignupForm } from "../../components/Signup/Signup";
 
 export function Home() {
-  return <SignupForm />;
+  return <h1>Home Page</h1>
 }

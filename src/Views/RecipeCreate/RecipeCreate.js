@@ -1,6 +1,8 @@
 import React from "react";
+import Select from "react-select";
 import { Redirect } from "react-router-dom";
 import { newRecipe } from "../../service/recipe.service";
+import "./RecipeCreate.css"
 
 export function RecipeCreate() {
   const initialState = {
@@ -10,6 +12,12 @@ export function RecipeCreate() {
     category: "",
   };
 
+  const options = [
+    { value: "first", label: "first" },
+    { value: "second", label: "second" },
+    { value: "desert", label: "desert" },
+  ];
+
   const [state, setState] = React.useState(initialState);
   const [redirect, setRedirect] = React.useState(false);
 
@@ -17,10 +25,11 @@ export function RecipeCreate() {
     const { name, value } = event.target;
     setState({ ...state, [name]: value });
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     await newRecipe(state);
-    console.log("state", state)
+    console.log("state", state);
     setRedirect(true);
   };
   if (redirect) {
@@ -28,14 +37,8 @@ export function RecipeCreate() {
   }
 
   return (
-    <form
+    <form className="create-recipe"
       onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "500px",
-        margin: "10px auto",
-      }}
     >
       <label htmlFor="name">name</label>
       <input
@@ -53,14 +56,9 @@ export function RecipeCreate() {
         value={state.ingredients}
         onChange={handleChange}
       />
-      <label htmlFor="category">Category</label>
-      <input
-        type="text"
-        name="category"
-        id="category"
-        value={state.category}
-        onChange={handleChange}
-      />
+<label htmlFor="category">Category</label>
+      <Select options={options} />
+
       <label htmlFor="description">Description</label>
       <textarea
         name="description"
