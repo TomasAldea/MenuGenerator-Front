@@ -3,7 +3,7 @@ import {AuthContext} from "../../context/AuthContext"
 import {Redirect} from "react-router-dom"
 
 
-export function Signup({onSubmit}) {
+export function Login({onSubmit}) {
 
     const auth = React.useContext(AuthContext)
 
@@ -17,13 +17,12 @@ export function Signup({onSubmit}) {
 
       const handleSubmit = async (event) => {
         event.preventDefault();
-        await auth.handleSignup(state) 
+        await auth.handleLogin(state) 
         setRedirect(true);
       };
       if (redirect) {
         return <Redirect to="/" />;
       }
-
     return (
         <form
         onSubmit={handleSubmit}
@@ -50,7 +49,7 @@ export function Signup({onSubmit}) {
           value={state.password}
           onChange={handleChange}
         />
-        <button type="submit">Signup</button>
+        <button type="submit">Login</button>
       </form>
     )
 
