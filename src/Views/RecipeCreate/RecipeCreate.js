@@ -57,7 +57,7 @@ export function RecipeCreate() {
         onChange={handleChange}
       />
 <label htmlFor="category">Category</label>
-      <Select options={options} />
+      <Select options={options} onChange={({value}) => setState({...state, category: value})} />
 
       <label htmlFor="description">Description</label>
       <textarea
