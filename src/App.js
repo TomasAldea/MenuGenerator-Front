@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import { Home } from "./Views/Home/Home";
 import { Navbar } from "./components/Navbar/Navbar";
 import { RecipeCreate } from "./Views/RecipeCreate/RecipeCreate";
+import { Recipe } from "./Views/Recipe/Recipe";
 import { Login } from "./components/Login/Login";
 import {Signup} from "./components/Signup/Signup";
 import {Recipes} from "./Views/Recipes/Recipes"
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <PrivateRoute exact path="/allrecipes">
           <Recipes />
+        </PrivateRoute>
+        <PrivateRoute exact path="/recipe/:recipeId">
+          <Recipe />
         </PrivateRoute>
       </Switch>
     </div>

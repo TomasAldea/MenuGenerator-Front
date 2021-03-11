@@ -8,3 +8,5 @@ const recipeApi = axios.create({
 export const newRecipe = recipe => recipeApi.post('/recipe', recipe)
 
 export const allRecipes = () => recipeApi.get('/allrecipes')
+
+export const recipe = recipeId => recipeApi.get(`/recipe/${recipeId}`)
