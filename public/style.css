@@ -1,0 +1,16 @@
+
+.body-background {
+    background-image: url("/img/lukas-blazek-f-TWhXOrLiU-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'blackboard';
+    src:  url('BlackBoard 400.ttf') format('woff2'),
+          url('BlackBoard 400.ttf') format('woff');
+  }
+
+  

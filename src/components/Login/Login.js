@@ -3,7 +3,7 @@ import {AuthContext} from "../../context/AuthContext"
 import {Redirect} from "react-router-dom"
 
 
-export function Login({onSubmit}) {
+export function Login() {
 
     const auth = React.useContext(AuthContext)
 
