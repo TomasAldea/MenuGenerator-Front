@@ -14,7 +14,6 @@ export function Navbar() {
         <Link className="navbar-brand" to="/">
           Go home
         </Link>
-
         {user.isLogged ? (
           <React.Fragment>
             <Link className="navbar-brand" to="/recipecreate">

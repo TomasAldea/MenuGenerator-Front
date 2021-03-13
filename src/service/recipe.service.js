@@ -14,3 +14,5 @@ export const recipe = recipeId => recipeApi.get(`/recipe/${recipeId}`)
 export const editRecipe = (recipeId, recipe) => recipeApi.patch(`/recipe/${recipeId}`, recipe)
 
 export const deleteRecipe = recipeId => recipeApi.delete(`/recipe/${recipeId}`)
+
+export const getRandomRecipeByCat = catString => recipeApi.get(`/weekGenerator/${catString}`)
