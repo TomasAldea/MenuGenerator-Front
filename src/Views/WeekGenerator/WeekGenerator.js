@@ -1,22 +1,18 @@
 import React from "react";
-import { allRecipes } from "../../service/recipe.service";
-import { getRandomRecipeByCat } from "../../service/recipe.service";
+// import { allRecipes } from "../../service/recipe.service";
+import { getRandomRecipeByCat, recipe } from "../../service/recipe.service";
 import "./WeekGenerator.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 export function WeekGenerator() {
-  const [recipes, setRecipes] = React.useState([]);
 
   const weekRecipe = [];
 
-  const diasSemana = ["Lunes","martes","Miercoles","Jueves","Viernes","Sabado","Domingo"];
+  const weekDays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
 
   const [week, setWeek] = React.useState([weekRecipe]);
 
   const generatorRecipe = async (i) => {
-
-
-   // console.log(    localStorage.getItem('weekData')   )
     
     var arrayWeek = [];
 
@@ -28,12 +24,7 @@ export function WeekGenerator() {
       array.push(first, second, desert);
       arrayWeek.push(array);
     }
-
     setWeek(arrayWeek);
-
- 
-
-
   };
 
   React.useEffect(() => {
@@ -41,7 +32,7 @@ export function WeekGenerator() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container week-table">
       <div className="row">
         <div className="col-12 main">
             {week.map((dayRecipe,i) => {
@@ -49,12 +40,12 @@ export function WeekGenerator() {
                 <div className="card"><ul>
 
                 <li>
-                   <b>{diasSemana[i]}</b>
+                   <b>{weekDays[i]}</b>
                   <ul>
                     {dayRecipe.map((recipeOne) => {
                       return (
                         <li>
-                          <h5 className="card-title">{recipeOne.name}</h5>
+                          <h5 key={recipeOne._id} className="card-title">{recipeOne.name}</h5>
                         </li>
                       );
                     })}

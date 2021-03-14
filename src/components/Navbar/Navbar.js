@@ -22,6 +22,9 @@ export function Navbar() {
             <Link className="navbar-brand" to="/allrecipes">
               See all recipes
             </Link>
+            <Link className="navbar-brand" to="/WeekGenerator">
+              Create Week
+            </Link>
             <Logout />
           </React.Fragment>
         ) : (

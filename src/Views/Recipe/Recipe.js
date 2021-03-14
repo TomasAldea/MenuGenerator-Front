@@ -18,8 +18,6 @@ export function Recipe() {
     setIngredients(data.ingredients)
   };
 
-  //const ingredientsArr = recipe.ingredients
-
   React.useEffect(() => {
     getRecipe(recipeId);
   }, []);

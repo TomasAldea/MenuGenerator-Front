@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteRecipe, recipe } from "../../service/recipe.service";
+import { deleteRecipe } from "../../service/recipe.service";
 import { useParams, useHistory } from "react-router-dom";
 
 
@@ -10,7 +10,7 @@ export function DeleteRecipe() {
   const {push} = useHistory()
 
   const recipeDelete = async () => {
-      const {data} = await deleteRecipe(recipeId)
+     await deleteRecipe(recipeId)
       push("/allrecipes")
   };
 
