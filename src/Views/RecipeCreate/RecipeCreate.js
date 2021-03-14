@@ -29,7 +29,6 @@ export function RecipeCreate() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await newRecipe(state);
-    console.log("state", state);
     setRedirect(true);
   };
   if (redirect) {
@@ -37,6 +36,7 @@ export function RecipeCreate() {
   }
 
   return (
+    
     <form className="create-recipe"
       onSubmit={handleSubmit}
     >
@@ -68,7 +68,7 @@ export function RecipeCreate() {
         value={state.description}
         onChange={handleChange}
       />
-      <button type="submit">Create</button>
+      <button type="submit" className="btn-size btn btn-success">Create</button>
     </form>
   );
 }
