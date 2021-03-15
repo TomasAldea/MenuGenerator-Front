@@ -34,32 +34,41 @@ export function WeekGenerator() {
   return (
     <div className="container week-table">
       <div className="row">
-        <div className="col-12 main">
-            {week.map((dayRecipe,i) => {
+          { week.length > 1 ? (
+            week.map((dayRecipe,i) => {
               return (
-                <div className="card"><ul>
+                <div className="card col"><ul>
 
                 <li>
                    <b>{weekDays[i]}</b>
-                  <ul>
                     {dayRecipe.map((recipeOne) => {
                       return (
-                        <li>
-                          <h5 key={recipeOne._id} className="card-title">{recipeOne.name}</h5>
-                        </li>
-                      );
+                        <div>
+                          <b>{recipeOne.category}</b>
+                          <br></br>
+                          <span>{recipeOne.name}</span>
+                        </div>
+                        );
                     })}
-                  </ul>
                 </li>
                 </ul>
                 </div>
 
               );
               
-            })}
+            })
+          ) : (
+            console.log("false")
+          )
 
-        </div>
+          }
+                </div>
+                <div className="row">
+
+        <div className="col-12">
+
         <button onClick={generatorRecipe}>Create</button>
+        </div>
 
       </div>
     </div>

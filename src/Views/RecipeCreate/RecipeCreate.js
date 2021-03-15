@@ -47,6 +47,7 @@ export function RecipeCreate() {
         id="name"
         value={state.name}
         onChange={handleChange}
+        required
       />
       <label htmlFor="ingredients">Ingredients</label>
       <input
@@ -55,9 +56,10 @@ export function RecipeCreate() {
         id="ingredients"
         value={state.ingredients}
         onChange={handleChange}
+        required
       />
 <label htmlFor="category">Category</label>
-      <Select options={options} onChange={({value}) => setState({...state, category: value})} />
+      <Select required options={options} onChange={({value}) => setState({...state, category: value})} />
 
       <label htmlFor="description">Description</label>
       <textarea
@@ -67,6 +69,7 @@ export function RecipeCreate() {
         rows="10"
         value={state.description}
         onChange={handleChange}
+        required
       />
       <button type="submit" className="btn-size btn btn-success">Create</button>
     </form>

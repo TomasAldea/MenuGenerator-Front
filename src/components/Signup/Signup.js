@@ -39,6 +39,7 @@ export function Signup({ onSubmit }) {
         id="email"
         value={state.email}
         onChange={handleChange}
+        required
       />
       <label htmlFor="password">Password</label>
       <input
@@ -47,6 +48,7 @@ export function Signup({ onSubmit }) {
         id="password"
         value={state.password}
         onChange={handleChange}
+        required
       />
       <button type="submit">Signup</button>
     </form>
