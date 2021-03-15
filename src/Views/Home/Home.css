@@ -38,6 +38,17 @@
   top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #afafaf;
+  color: white;
   letter-spacing: 0.4em;
+}
+.prevent {
+  color: white;
+  text-decoration: none;
+}
+
+.prevent:hover 
+{
+   color:#00A0C6; 
+   text-decoration:none; 
+   cursor:pointer;  
 }

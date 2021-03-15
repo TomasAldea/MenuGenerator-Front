@@ -16,15 +16,6 @@ export function Navbar() {
         </Link>
         {user.isLogged ? (
           <React.Fragment>
-            <Link className="navbar-brand" to="/recipecreate">
-              Create recipe
-            </Link>
-            <Link className="navbar-brand" to="/allrecipes">
-              See all recipes
-            </Link>
-            <Link className="navbar-brand" to="/WeekGenerator">
-              Create Week
-            </Link>
             <Logout />
           </React.Fragment>
         ) : (
@@ -41,3 +32,9 @@ export function Navbar() {
     </nav>
   );
 }
+
+/*
+
+
+
+*/
