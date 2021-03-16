@@ -34,8 +34,8 @@ export function RecipeEdit() {
   };
 
   React.useEffect(() => {
-    getRecipe(recipeId);
-  }, []);
+    getRecipe();
+  }, [recipeId]);
 
   //----- select options -----//
 

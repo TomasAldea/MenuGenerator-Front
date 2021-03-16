@@ -2,7 +2,7 @@ import React from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Redirect } from "react-router-dom";
 
-export function Signup({ onSubmit }) {
+export function Signup() {
   const auth = React.useContext(AuthContext);
 
   const [state, setState] = React.useState({ email: "", password: "" });
@@ -15,7 +15,7 @@ export function Signup({ onSubmit }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await auth.handleSignup(state);
+   await auth.handleSignup(state);
     setRedirect(true);
   };
   if (redirect) {
