@@ -37,6 +37,7 @@ function AuthProvider({ children }) {
   }, []);
 
   const handleLogout = React.useCallback(async () => {
+
     try {
       await logout();
       removeUser();

@@ -1,0 +1,54 @@
+.margin {
+  margin-top: 40px;
+}
+
+.blackboard {
+  position: relative;
+  text-align: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 58px;
+  height: 33rem;
+  width: 30rem;
+}
+
+.size {
+  width: 29rem;
+  height: 35rem;
+}
+
+.centered {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #afafaf;
+  font-family: "blackboard";
+  text-decoration: underline;
+}
+
+.home-tittle {
+  font-family: "blackboard";
+  font-size: 6rem;
+}
+.about-text {
+  font-family: "blackboard";
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  letter-spacing: 0.4em;
+}
+.prevent {
+  color: white;
+  text-decoration: none;
+}
+
+.prevent:hover 
+{
+   color:#00A0C6; 
+   text-decoration:none; 
+   cursor:pointer;  
+}

@@ -1,0 +1,12 @@
+.card {
+    margin-bottom: 20px;
+}
+.all-cards {
+    box-shadow: 5px 5px 9px 0px;
+    background-image: url("./board-2167844_1920.jpg");
+}
+
+.card-title{
+    color:white;
+    letter-spacing: 5px;
+}
