@@ -18,8 +18,8 @@ export function Recipe() {
   };
 
   React.useEffect(() => {
-    getRecipe();
-  }, [recipeId]);
+    getRecipe(recipeId);
+  }, []);
 
   return (
     <div>
