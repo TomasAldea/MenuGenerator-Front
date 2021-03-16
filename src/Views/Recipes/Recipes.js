@@ -21,12 +21,12 @@ export function Recipes() {
         return (
           <div key={i._id} className="col-sm-6">
             <div className="card">
-              <div className="card-body">
+              <div className="all-cards card-body">
                 <h5 className="card-title">{i.name}</h5>
-                <p className="card-text">{i.category}</p>
-                <button className="btn btn-outline-info">
+                <p className="card-text card-title">Category: {i.category}</p>
+              
                   <Link to={`/recipe/${i._id}`}>Details</Link>
-                </button>
+               
               </div>
             </div>
           </div>
