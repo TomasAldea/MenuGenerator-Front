@@ -18,25 +18,10 @@ export function WeekGenerator() {
     "Sunday",
   ];
 
-  const types = ["first", "second", "desert"]
+  const types = ["first", "second", "desert"];
 
   const [week, setWeek] = React.useState([weekRecipe]);
-  /*
-  const generatorRecipe = async (i) => {
-    
-    var arrayWeek = [];
 
-    for (let index = 0; index < 5; index++) {
-      var array = [];
-      const { data: first } = await getRandomRecipeByCat("first");
-      const { data: second } = await getRandomRecipeByCat("second");
-      const { data: desert } = await getRandomRecipeByCat("desert");
-      array.push(first, second, desert);
-      arrayWeek.push(array);
-    }
-    setWeek(arrayWeek);
-  };
-*/
   const generatorRecipe = async (i) => {
     var arrayWeek = [];
     var arrayFirst = [];
@@ -57,6 +42,8 @@ export function WeekGenerator() {
     setWeek(arrayWeek);
   };
 
+  console.log(week);
+
   console.log("week", week);
   return (
     <div className="container week-table">
@@ -64,10 +51,10 @@ export function WeekGenerator() {
         {week.length > 1 ? (
           <table className="table">
             <tr>
-            {weekDays.map((day) => {
-              return <th scope="col">{day}</th>;
-            })}
-</tr>
+              {weekDays.map((day) => {
+                return <th scope="col">{day}</th>;
+              })}
+            </tr>
             {week.map((dayRecipe, i) => {
               return (
                 <tr>
@@ -85,11 +72,13 @@ export function WeekGenerator() {
       </div>
       <div className="row">
         <div className="col-12">
-          <button className="btn btn-success" onClick={generatorRecipe}>
-            Create
-          </button>
+
         </div>
+        <button className="btn btn-success" onClick={generatorRecipe}>
+            Create week
+          </button>
       </div>
+      
     </div>
   );
 }

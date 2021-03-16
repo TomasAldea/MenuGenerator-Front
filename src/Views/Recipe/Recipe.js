@@ -11,9 +11,12 @@ export function Recipe() {
 
   const { recipeId } = useParams();
 
+console.log("recipeId", recipeId);
+
   const getRecipe = async (id) => {
     const { data } = await recipeService(id);
     setRecipe(data);
+  
     setIngredients(data.ingredients);
   };
 
@@ -49,3 +52,4 @@ export function Recipe() {
 }
 
 // <img src="..." class="card-img-top" alt="...">
+
