@@ -5,7 +5,11 @@ import { Redirect } from "react-router-dom";
 export function Signup() {
   const auth = React.useContext(AuthContext);
 
-  const [state, setState] = React.useState({ email: "", password: "" });
+  const [state, setState] = React.useState({
+    email: "",
+    password: "",
+    name: "",
+  });
   const [redirect, setRedirect] = React.useState(false);
 
   const handleChange = (event) => {
@@ -15,7 +19,7 @@ export function Signup() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-   await auth.handleSignup(state);
+    await auth.handleSignup(state);
     setRedirect(true);
   };
   if (redirect) {
@@ -32,6 +36,15 @@ export function Signup() {
         margin: "10px auto",
       }}
     >
+      <label htmlFor="email">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        value={state.name}
+        onChange={handleChange}
+        required
+      />
       <label htmlFor="email">Email</label>
       <input
         type="text"
