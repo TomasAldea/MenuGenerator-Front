@@ -12,6 +12,7 @@ import {RecipeEdit} from "./Views/RecipeEdit/RecipeEdit"
 import {WeekGenerator} from "./Views/WeekGenerator/WeekGenerator"
 import AnonRoute from "./components/Routes/AnonRoute"
 import PrivateRoute from "./components/Routes/PrivateRoute"
+import {LoginSuccess} from "./Views/LoginSuccess/LoginSuccess"
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+        <PrivateRoute exact path="/loginsuccess">
+          <LoginSuccess />
+        </PrivateRoute>
         <AnonRoute exact path="/login">
           <Login />
         </AnonRoute>
