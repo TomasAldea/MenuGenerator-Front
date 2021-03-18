@@ -19,12 +19,10 @@ export function Login() {
     const handleSubmit = async (event) => {
       event.preventDefault();
       await auth.handleLogin(state) 
-      console.log(redirect)  // <---- false
       setRedirect(true);
-      console.log(redirect) // <---- false
     };
     if (redirect) {
-      console.log("hola") // <---- no entra
+
       return <Redirect to="/loginsuccess" />;
 
       }
