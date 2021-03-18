@@ -20,7 +20,7 @@ console.log("recipeId", recipeId);
     setIngredients(data.ingredients);
   };
 
-  React.useEffect(() => {
+   React.useEffect(() => {
     getRecipe(recipeId);
   }, []);
 

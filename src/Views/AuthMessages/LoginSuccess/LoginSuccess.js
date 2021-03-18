@@ -14,6 +14,8 @@ export function LoginSuccess() {
     getUserInfo();
   }, []);
 
+  console.log(user)
+
   React.useEffect(() => {
     setTimeout(() => {
       history.push("/");
