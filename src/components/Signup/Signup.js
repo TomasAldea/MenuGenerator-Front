@@ -23,7 +23,7 @@ export function Signup() {
     setRedirect(true);
   };
   if (redirect) {
-    return <Redirect to="/" />;
+    return <Redirect to="/signupsuccess" />;
   }
 
   return (

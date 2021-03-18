@@ -22,7 +22,9 @@ function AuthProvider({ children }) {
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
-      console.error(e);
+      console.error("error data",e.response.data);
+      console.error("error",e.response.error);
+      console.error("error message",e.response.message);
     }
   }, []);
 

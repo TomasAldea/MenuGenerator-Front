@@ -1,5 +1,5 @@
 import React from "react";
-import { getLocalUser } from "../../context/AuthContext.utils";
+import { getLocalUser } from "../../../context/AuthContext.utils";
 import { useHistory } from "react-router-dom";
 
 export function LoginSuccess() {
