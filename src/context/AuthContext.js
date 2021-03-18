@@ -15,7 +15,7 @@ const initialState = {
 
 function AuthProvider({ children }) {
   const [state, setState] = React.useState(initialState);
-
+// nuevo estado para capturar errores
   const handleLogin = React.useCallback(async (user) => {
     try {
       const { data: loggedUser } = await login(user);
@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider
+    <AuthContext.Provider // añadir ereror state para pder consumir
       value={{ user: state.user, handleLogin, handleLogout, handleSignup }}
     >
       {children}
