@@ -2,7 +2,7 @@ import React from "react";
 // import { allRecipes } from "../../service/recipe.service";
 import { getRandomRecipeByCat } from "../../service/week.service";
 import "./WeekGenerator.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function WeekGenerator() {
   const weekRecipe = [];
@@ -44,7 +44,6 @@ export function WeekGenerator() {
 
   console.log("week", week);
 
-  console.log("week", week);
   return (
     <div className="container week-table">
       <div className="table-responsive">
@@ -61,7 +60,7 @@ export function WeekGenerator() {
                 <tr>
                   <td>{types[i]}</td>
                   {dayRecipe.map((recipeOne) => {
-                    return <td>{recipeOne.name}</td>;
+                    return <td><Link className="prevent-week" to={`/recipe/${recipeOne.id}`}>{recipeOne.name}</Link></td>
                   })}
                 </tr>
               );
