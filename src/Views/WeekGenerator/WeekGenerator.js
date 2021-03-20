@@ -42,14 +42,15 @@ export function WeekGenerator() {
     setWeek(arrayWeek);
   };
 
-  console.log(week);
+  console.log("week", week);
 
   console.log("week", week);
   return (
     <div className="container week-table">
-      <div className="container row">
+      <div className="table-responsive">
         {week.length > 1 ? (
-          <table className="table">
+          <table className="table align-middle">
+            <tbody >
             <tr>
               {weekDays.map((day) => {
                 return <th scope="col">{day}</th>;
@@ -65,6 +66,7 @@ export function WeekGenerator() {
                 </tr>
               );
             })}
+            </tbody>
           </table>
         ) : (
           console.log("false")

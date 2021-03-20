@@ -2,6 +2,7 @@ import React from "react";
 import Select from "react-select";
 import { Redirect } from "react-router-dom";
 import { newRecipe } from "../../service/recipe.service";
+import { uploadFileService } from "../../service/recipe.service";
 import "./RecipeCreate.css"
 
 export function RecipeCreate() {
@@ -10,6 +11,19 @@ export function RecipeCreate() {
     ingredients: [],
     description: "",
     category: "",
+    picture: "",
+  };
+  const [state, setState] = React.useState(initialState);
+  const [redirect, setRedirect] = React.useState(false);
+
+  //------function to add image------//
+
+   const handleUpload = async (e) => {
+    console.log("e.target", e.target.files[0]);
+    const uploadData = new FormData();
+    uploadData.append("image", e.target.files[0]);
+    const {data} = await uploadFileService(uploadData);
+    setState({ ...state, image: data });
   };
 
   const options = [
@@ -18,8 +32,7 @@ export function RecipeCreate() {
     { value: "desert", label: "desert" },
   ];
 
-  const [state, setState] = React.useState(initialState);
-  const [redirect, setRedirect] = React.useState(false);
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -71,6 +84,14 @@ export function RecipeCreate() {
         onChange={handleChange}
         required
       />
+      <label htmlFor="file">file</label>
+        <input
+          type="file"
+          name="picture"
+          id="picture"
+          value={state.picture}
+          onChange={handleUpload}
+        />
       <button type="submit" className="btn-size btn btn-success">Create</button>
     </form>
   );
