@@ -42,7 +42,7 @@ export function WeekGenerator() {
     setWeek(arrayWeek);
   };
 
-  console.log(week);
+  console.log("week", week);
 
   console.log("week", week);
   return (
