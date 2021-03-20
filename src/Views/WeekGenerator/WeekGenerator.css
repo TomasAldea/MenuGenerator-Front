@@ -8,3 +8,11 @@ background-color: #d4d4d4;
 border-radius: 10px;
 }
 
+.prevent-week{
+    text-decoration: none;
+    color: black;
+}
+
+.openModal{
+    cursor: pointer;
+}

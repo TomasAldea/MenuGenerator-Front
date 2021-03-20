@@ -25,7 +25,7 @@ export function Recipes() {
                 <h5 className="card-title">{i.name}</h5>
                 <p className="card-text card-title">Category: {i.category}</p>
               
-                  <Link className="prevent" to={`/recipe/${i._id}`}>Press to Details</Link>
+                  <Link className="prevent-week" to={`/recipe/${i._id}`}>Press to Details</Link>
                
               </div>
             </div>

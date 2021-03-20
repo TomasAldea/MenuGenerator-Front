@@ -1,9 +1,12 @@
 import React from "react";
 // import { allRecipes } from "../../service/recipe.service";
 import { getRandomRecipeByCat } from "../../service/week.service";
+import { recipe as getRecipeToModal } from "../../service/recipe.service";
 import "./WeekGenerator.css";
-// import { Link } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { Button,Modal } from 'react-bootstrap';
+import { useParams } from "react-router-dom";
+ 
 export function WeekGenerator() {
   const weekRecipe = [];
 
@@ -19,8 +22,16 @@ export function WeekGenerator() {
   ];
 
   const types = ["first", "second", "desert"];
+  const [show, setShow] = React.useState(false);
 
   const [week, setWeek] = React.useState([weekRecipe]);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [recipe, setRecipe] = React.useState([]);
+  const [ingredients, setIngredients] = React.useState([]);
+  
+  const { recipeId } = useParams();
+  
 
   const generatorRecipe = async (i) => {
     var arrayWeek = [];
@@ -42,9 +53,27 @@ export function WeekGenerator() {
     setWeek(arrayWeek);
   };
 
-  console.log("week", week);
+
+
+const getRecipe = async (id) => {
+  const { data } = await getRecipeToModal(id);
+  setRecipe(data);
+  handleShow()
+  var ing =  data.ingredients[0].split(",")
+
+  setIngredients(ing);
+
+};
+
+ React.useEffect(() => {
+  getRecipe(recipeId);
+}, []);
+
+console.log("recipe", recipe)
+
 
   console.log("week", week);
+
   return (
     <div className="container week-table">
       <div className="table-responsive">
@@ -61,7 +90,8 @@ export function WeekGenerator() {
                 <tr>
                   <td>{types[i]}</td>
                   {dayRecipe.map((recipeOne) => {
-                    return <td>{recipeOne.name}</td>;
+                   // return <td><Link className="prevent-week" to={`/recipe/${recipeOne.id}`}>{recipeOne.name}</Link></td>
+                   return <td className="openModal" onClick={() => getRecipe(recipeOne.id)}>{recipeOne.name}</td>
                   })}
                 </tr>
               );
@@ -81,6 +111,32 @@ export function WeekGenerator() {
           </button>
       </div>
       
+   
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header >
+          <Modal.Title>{recipe.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body
+        >
+          {recipe.description}
+          <div className="row">
+          <div className="col-12"><b>Ingredients:</b></div>
+          {ingredients.map(function (i) {
+            return <li className="col-6">{i}</li>;
+          })}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+
+          <Button variant="primary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
     </div>
+
+    
   );
 }
