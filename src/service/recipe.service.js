@@ -15,3 +15,4 @@ export const editRecipe = (recipeId, recipe) => recipeApi.patch(`/recipe/${recip
 
 export const deleteRecipe = recipeId => recipeApi.delete(`/recipe/${recipeId}`)
 
+export const uploadFileService = file => recipeApi.post("/recipe/upload", file)
