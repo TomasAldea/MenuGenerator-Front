@@ -14,8 +14,9 @@ export function Recipe() {
   const getRecipe = async (id) => {
     const { data } = await recipeService(id);
     setRecipe(data);
-  
-    setIngredients(data.ingredients);
+    var ing =  data.ingredients[0].split(",")
+
+    setIngredients(ing);
   };
 
    React.useEffect(() => {

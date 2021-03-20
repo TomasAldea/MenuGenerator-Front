@@ -1,7 +1,6 @@
 .create-recipe {
   display: flex;
   flex-direction: column;
-  width: 500px;
   margin: 10px auto;
 }
 

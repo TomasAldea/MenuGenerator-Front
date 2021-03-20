@@ -39,11 +39,7 @@ export function Home() {
             </React.Fragment>
           )}
         </ul>
-        <img
-          src="/img/ekaterina-novitskaya-gLroHoWh_as-unsplash.jpg"
-          alt="fondo"
-          className="rounded float-start img-fluid size"
-        ></img>
+        
       </div>
     </div>
   );

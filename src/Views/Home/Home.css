@@ -10,7 +10,10 @@
   margin-right: auto;
   margin-top: 58px;
   height: 33rem;
-  width: 30rem;
+  width: 100%;
+  max-width: 30rem;
+  background-image: url("back.jpg");
+  background-size: cover;
 }
 
 .size {
@@ -19,13 +22,13 @@
 }
 
 .centered {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   color: #afafaf;
   font-family: "blackboard";
   text-decoration: underline;
+  
+  padding: 2rem 0;
+
 }
 
 .home-tittle {
@@ -34,12 +37,14 @@
 }
 .about-text {
   font-family: "blackboard";
-  position: absolute;
-  top: 56%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
   color: white;
   letter-spacing: 0.4em;
+
+  
+  padding: 2rem 0;
+
+  padding-top:0;
 }
 .prevent {
   color: white;
@@ -51,4 +56,24 @@
    color:#00A0C6; 
    text-decoration:none; 
    cursor:pointer;  
+}
+
+.about-text li{
+  padding: .5rem 0 ;
+}
+
+@media (max-width: 768px){
+
+  .blackboard{
+    height: 28rem;
+    margin-top: 2rem;
+  }
+
+  .home-tittle {
+    font-size: 3rem;
+  }
+
+ 
+
+
 }

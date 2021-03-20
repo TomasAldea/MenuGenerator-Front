@@ -32,7 +32,6 @@ export function Signup() {
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "500px",
         margin: "10px auto",
       }}
     >

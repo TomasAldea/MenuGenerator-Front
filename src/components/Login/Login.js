@@ -33,23 +33,24 @@ export function Login() {
         style={{
           display: "flex",
           flexDirection: "column",
-          width: "500px",
           margin: "10px auto",
         }}
       >
-        <label htmlFor="email">Email</label>
         <input
           type="text"
           name="email"
           id="email"
           value={state.email}
+          placeholder="Email"
           onChange={handleChange}
         />
-        <label htmlFor="password">Password</label>
+
         <input
           type="password"
           name="password"
           id="password"
+          placeholder="Password"
+
           value={state.password}
           onChange={handleChange}
         />
