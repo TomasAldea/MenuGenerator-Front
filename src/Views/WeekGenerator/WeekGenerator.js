@@ -3,9 +3,8 @@ import React from "react";
 import { getRandomRecipeByCat } from "../../service/week.service";
 import { recipe as getRecipeToModal } from "../../service/recipe.service";
 import "./WeekGenerator.css";
-import { Link } from "react-router-dom";
 import { Button,Modal } from 'react-bootstrap';
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
  
 export function WeekGenerator() {
   const weekRecipe = [];
@@ -30,8 +29,7 @@ export function WeekGenerator() {
   const [recipe, setRecipe] = React.useState([]);
   const [ingredients, setIngredients] = React.useState([]);
   
-  const { recipeId } = useParams();
-  
+ // const { recipeId } = useParams();
 
   const generatorRecipe = async (i) => {
     var arrayWeek = [];
@@ -65,14 +63,6 @@ const getRecipe = async (id) => {
 
 };
 
- React.useEffect(() => {
-  getRecipe(recipeId);
-}, []);
-
-console.log("recipe", recipe)
-
-
-  console.log("week", week);
 
   return (
     <div className="container week-table">
@@ -89,7 +79,7 @@ console.log("recipe", recipe)
               return (
                 <tr>
                   <td>{types[i]}</td>
-                  {dayRecipe.map((recipeOne) => {
+                  {dayRecipe.map((recipeOne) => {             
                    // return <td><Link className="prevent-week" to={`/recipe/${recipeOne.id}`}>{recipeOne.name}</Link></td>
                    return <td className="openModal" onClick={() => getRecipe(recipeOne.id)}>{recipeOne.name}</td>
                   })}
@@ -99,7 +89,7 @@ console.log("recipe", recipe)
             </tbody>
           </table>
         ) : (
-          console.log("false")
+          console.log("")
         )}
       </div>
       <div className="row">

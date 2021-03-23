@@ -21,15 +21,13 @@ export function Recipe() {
 
    React.useEffect(() => {
     getRecipe(recipeId);
-  }, []);
-
-  console.log("recipe", recipe)
+  }, [recipeId]);
 
   return (
     <div>
       <div className="card my-card">
         <div className="card-body">
-          <img className="card-img-top" src={recipe.image}></img>
+          <img className="card-img-top" alt="foodImage" src={recipe.image}></img>
           <h5>{recipe.name}</h5>
           <h6>Steps to follow</h6>
           <p className="card-text">{recipe.description}</p>

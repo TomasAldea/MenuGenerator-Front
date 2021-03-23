@@ -18,6 +18,7 @@ export function defaultUser() {
     id: null,
     email: "",
     name: "",
+    createsRecipes: "",
     isLogged: false,
   };
 }
@@ -36,12 +37,12 @@ export function removeUser() {
   localStorage.removeItem("user");
 }
 
-export function useRefreshUser({ email, id, name }, onSuccess) {
+export function useRefreshUser({ email, id, name, createsRecipes }, onSuccess) {
   const { isLogged } = getLocalUser();
   React.useEffect(() => {
-    const hasMissingInfo = !email || !id || !name;
+    const hasMissingInfo = !email || !id || !name || !createsRecipes;
     if (isLogged && hasMissingInfo) {
       getUser().then(({ data: user }) => onSuccess(user));
     }
-  }, [email, id, name, isLogged, onSuccess]);
+  }, [email, id, name, isLogged, createsRecipes, onSuccess]);
 }
