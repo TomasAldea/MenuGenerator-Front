@@ -16,8 +16,10 @@ export function Navbar() {
         </Link>
         {user.isLogged ? (
           <React.Fragment>
+            <Link className="navbar-brand" to="/UserProfile">Profile</Link>
             <Logout />
           </React.Fragment>
+          
         ) : (
           <React.Fragment>
             <Link className="navbar-brand" to="/login">

@@ -64,7 +64,7 @@ export function RecipeEdit() {
     setRedirect(true);
   };
   if (redirect) {
-    return <Redirect to="/" />;
+    return <Redirect to="/UserProfile" />;
   }
 
   return (
