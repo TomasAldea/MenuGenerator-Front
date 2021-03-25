@@ -17,13 +17,13 @@ export function SignupSuccess() {
   React.useEffect(() => {
     setTimeout(() => {
       history.push("/");
-    }, 500);
+    }, 2000);
   }, [history]);
 
   return (
-    <div className="container">
-      <h1>signup success! </h1>
-      <h2>hello {user.name}</h2>
-    </div>
+    <div className="my-cont container">
+    <h2 className="welcome-message">Welcome {user.name}</h2>
+    <img src="/img/week-menu.gif" alt="Italian Trulli"></img>
+  </div>
   );
 }

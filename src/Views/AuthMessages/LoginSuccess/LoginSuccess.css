@@ -1,0 +1,24 @@
+.my-cont{
+    max-width: 49%;
+    text-align-last: center;
+    margin-top: 15%;
+}
+
+.welcome-message{
+    font-size: 5rem;
+    font-family: 'blackboard';
+}
+
+@media (max-width: 768px) {
+    .my-cont{
+        max-width: 22rem;
+        text-align-last: center;
+        margin-top: 15%;
+    }
+
+    .welcome-message{
+        font-size: 2.5rem;;
+        font-family: 'blackboard';
+        margin-bottom: 20%;
+    }
+}

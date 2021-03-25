@@ -7,8 +7,8 @@ export function Logout() {
 
 
   return (
-    <button className="btn btn-outline-danger" onClick={authLogout.handleLogout}>
-      Logout
+    <button className="my-button" onClick={authLogout.handleLogout}>
+      <img src="/img/logout.png"></img>
     </button>
   );
 }
