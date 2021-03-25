@@ -42,9 +42,8 @@ export function Recipe() {
             return <li className="list-group-item">{i}</li>;
           })}
         </ul>
-        <button className="btn btn-outline-info">
-        <Link to="/allrecipes">Go back</Link>
-      </button>
+   
+        <Link to="/allrecipes"><img src="/img/previous.png" width="40" height="40"></img></Link>
       </div>
     </div>
   );

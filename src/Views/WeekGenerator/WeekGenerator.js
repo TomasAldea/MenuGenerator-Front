@@ -22,6 +22,8 @@ export function WeekGenerator() {
 
   const types = ["first", "second", "desert"];
   const [show, setShow] = React.useState(false);
+  const [buttonWeek, setButtonWeek] = React.useState(true);
+
 
   const [week, setWeek] = React.useState([weekRecipe]);
   const handleClose = () => setShow(false);
@@ -49,6 +51,7 @@ export function WeekGenerator() {
     arrayWeek.push(arrayDesert);
 
     setWeek(arrayWeek);
+    setButtonWeek(false)
   };
 
 
@@ -65,12 +68,14 @@ const getRecipe = async (id) => {
 
 
   return (
+
+    
     <div className="container week-table">
       <div className="table-responsive">
         {week.length > 1 ? (
           <table className="table align-middle">
             <tbody >
-            <tr>
+            <tr className="week-days">
               {weekDays.map((day) => {
                 return <th scope="col">{day}</th>;
               })}
@@ -80,7 +85,6 @@ const getRecipe = async (id) => {
                 <tr>
                   <td>{types[i]}</td>
                   {dayRecipe.map((recipeOne) => {             
-                   // return <td><Link className="prevent-week" to={`/recipe/${recipeOne.id}`}>{recipeOne.name}</Link></td>
                    return <td className="openModal" onClick={() => getRecipe(recipeOne.id)}>{recipeOne.name}</td>
                   })}
                 </tr>
@@ -92,13 +96,22 @@ const getRecipe = async (id) => {
           console.log("")
         )}
       </div>
+      
       <div className="row">
+        
         <div className="col-12">
 
         </div>
-        <button className="btn btn-success" onClick={generatorRecipe}>
-            Create week
-          </button>
+        {buttonWeek ? (
+                  <button className="btn btn-success" onClick={generatorRecipe}>
+                  Click Me To Create Week!
+                </button>
+        ) : (
+          <button className="btn btn-success" onClick={generatorRecipe}>
+          Click Me To New Week!
+        </button>
+        )}
+
       </div>
       
    

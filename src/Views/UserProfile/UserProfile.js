@@ -17,11 +17,10 @@ export function UserProfile() {
   }, []);
 
   const renderView = () => {
-    getUser()
-    .then((result) => {
+    getUser().then((result) => {
       setRecipesCreated(result.data.createsRecipes);
-    })
-  }
+    });
+  };
 
   return (
     <div className="row">
@@ -33,15 +32,19 @@ export function UserProfile() {
               <div className="all-cards card-body">
                 <h5 className="card-title">{i.name}</h5>
                 <p className="card-text card-title">Category: {i.category}</p>
-                <button className="btn btn-light">
+                <div className="btn-align">
+                <button className=" my-button">
                   <Link className="prevent-week" to={`/recipe/${i._id}`}>
-                    Press to Details
+                    <img src="/img/details.png"></img>
                   </Link>
                 </button>
-                <DeleteRecipe recipeId={i._id} forceRender={renderView}/>
-                <button className="btn btn-info">
-                  <Link to={`/edit/${i._id}`}>Edit</Link>
+                <button className=" btn my-button">
+                  <Link to={`/edit/${i._id}`}>
+                    <img src="/img/edit.png"></img>
+                  </Link>
                 </button>
+                <DeleteRecipe recipeId={i._id} forceRender={renderView} />
+              </div>
               </div>
             </div>
           </div>

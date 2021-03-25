@@ -69,7 +69,7 @@ export function RecipeEdit() {
 
   return (
     <form className="create-recipe" onSubmit={handleSubmit}>
-      <label htmlFor="name">name</label>
+      <label htmlFor="name">Name</label>
       <input
         type="text"
         name="name"
@@ -100,8 +100,8 @@ export function RecipeEdit() {
         value={state.description}
         onChange={handleChange}
       />
-      <button type="submit" className="btn-size btn btn-success">
-        Edit
+      <button type="submit" className="btn btn-light">
+      <img src="/img/checked.png"></img>
       </button>
     </form>
   );
