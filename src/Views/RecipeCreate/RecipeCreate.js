@@ -3,7 +3,7 @@ import Select from "react-select";
 import { Redirect } from "react-router-dom";
 import { newRecipe } from "../../service/recipe.service";
 import { uploadFileService } from "../../service/recipe.service";
-import "./RecipeCreate.css"
+import "./RecipeCreate.css";
 
 export function RecipeCreate() {
   const initialState = {
@@ -18,11 +18,10 @@ export function RecipeCreate() {
 
   //------function to add image------//
 
-   const handleUpload = async (e) => {
-    console.log("e.target", e.target.files[0]);
+  const handleUpload = async (e) => {
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
-    const {data} = await uploadFileService(uploadData);
+    const { data } = await uploadFileService(uploadData);
     setState({ ...state, image: data });
   };
 
@@ -31,8 +30,6 @@ export function RecipeCreate() {
     { value: "second", label: "second" },
     { value: "desert", label: "desert" },
   ];
-
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -49,10 +46,7 @@ export function RecipeCreate() {
   }
 
   return (
-    
-    <form className="create-recipe"
-      onSubmit={handleSubmit}
-    >
+    <form className="create-recipe" onSubmit={handleSubmit}>
       <label htmlFor="name">name</label>
       <input
         type="text"
@@ -71,8 +65,12 @@ export function RecipeCreate() {
         onChange={handleChange}
         required
       />
-<label htmlFor="category">Category</label>
-      <Select required options={options} onChange={({value}) => setState({...state, category: value})} />
+      <label htmlFor="category">Category</label>
+      <Select
+        required
+        options={options}
+        onChange={({ value }) => setState({ ...state, category: value })}
+      />
 
       <label htmlFor="description">Description</label>
       <textarea
@@ -85,14 +83,16 @@ export function RecipeCreate() {
         required
       />
       <label htmlFor="file">file</label>
-        <input
-          type="file"
-          name="picture"
-          id="picture"
-          value={state.picture}
-          onChange={handleUpload}
-        />
-      <button type="submit" className="btn-size btn btn-success">Create</button>
+      <input
+        type="file"
+        name="picture"
+        id="picture"
+        value={state.picture}
+        onChange={handleUpload}
+      />
+      <button className="btn btn-litgh" type="submit">
+        <img src="/img/checked.png " width="40" height="40"></img>
+      </button>
     </form>
   );
 }

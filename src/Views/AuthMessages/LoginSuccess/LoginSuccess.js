@@ -1,5 +1,7 @@
 import React from "react";
 import { getLocalUser } from "../../../context/AuthContext.utils";
+import "./LoginSuccess.css"
+
 import { useHistory } from "react-router-dom";
 
 export function LoginSuccess() {
@@ -14,18 +16,18 @@ export function LoginSuccess() {
     getUserInfo();
   }, []);
 
-  console.log(user)
-
+  
   React.useEffect(() => {
     setTimeout(() => {
       history.push("/");
-    }, 3000);
+    }, 2000);
   }, [history]);
 
+
   return (
-    <div className="container">
-      <h1>Login success! </h1>
-      <h2>hello {user.name}</h2>
+    <div className="my-cont container">
+      <h2 className="welcome-message">Welcome {user.name}</h2>
+      <img src="/img/week-menu.gif" alt="Italian Trulli"></img>
     </div>
   );
 }

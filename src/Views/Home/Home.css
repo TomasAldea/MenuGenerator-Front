@@ -2,6 +2,11 @@
   margin-top: 40px;
 }
 
+.btn-home {
+    box-shadow: 2px 1px 4px 0px;
+    height: 4rem;
+}
+
 .blackboard {
   position: relative;
   text-align: center;
@@ -9,11 +14,14 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 58px;
-  height: 33rem;
+  height: 28rem;
   width: 100%;
   max-width: 30rem;
-  background-image: url("back.jpg");
+  background-image: url("navbar-vector.jpg");
   background-size: cover;
+  box-shadow: 4px 4px 9px;
+  border-radius: 29px;
+  background: rgba(112, 112, 112, 0.4);
 }
 
 .size {
@@ -23,12 +31,16 @@
 
 .centered {
 
-  color: #afafaf;
-  font-family: "blackboard";
-  text-decoration: underline;
+  color: black;
+  font-family: fantasy;
   
   padding: 2rem 0;
 
+}
+
+.about-us-text {
+ font-family: auto;
+ margin-bottom: 4rem;
 }
 
 .home-tittle {
@@ -38,7 +50,7 @@
 .about-text {
   font-family: "blackboard";
 
-  color: white;
+  color: black;
   letter-spacing: 0.4em;
 
   
@@ -53,7 +65,7 @@
 
 .prevent:hover 
 {
-   color:#00A0C6; 
+   color:#22881b; 
    text-decoration:none; 
    cursor:pointer;  
 }
@@ -62,17 +74,33 @@
   padding: .5rem 0 ;
 }
 
+.about-us-container{
+  display: grid;
+}
+
 @media (max-width: 768px){
 
+  .btn-home {
+      box-shadow: 2px 1px 4px 0px;
+      height: 2rem;
+  }
+
   .blackboard{
-    height: 28rem;
+    height: 19rem;
     margin-top: 2rem;
   }
 
   .home-tittle {
-    font-size: 3rem;
+    font-size: 41px;
   }
 
+  
+  .about-us-text {
+    font-family: auto;
+   font-size: 2rem;
+   font-size: 19px;
+   margin-bottom: 2rem;
+   }
  
 
 

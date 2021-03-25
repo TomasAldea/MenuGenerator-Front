@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
   }, []);
 
   return (
-    <AuthContext.Provider // añadir ereror state para pder consumir
+    <AuthContext.Provider // añadir error state para poder consumir
       value={{ user: state.user, handleLogin, handleLogout, handleSignup }}
     >
       {children}

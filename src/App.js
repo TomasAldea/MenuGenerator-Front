@@ -14,7 +14,7 @@ import AnonRoute from "./components/Routes/AnonRoute"
 import PrivateRoute from "./components/Routes/PrivateRoute"
 import {LoginSuccess} from "./Views/AuthMessages/LoginSuccess/LoginSuccess"
 import {SignupSuccess} from "./Views/AuthMessages/SignupSuccess/SignupSuccess"
-
+import {UserProfile} from "./Views/UserProfile/UserProfile"
 
 function App() {
   return (
@@ -36,6 +36,9 @@ function App() {
         <AnonRoute exact path="/signup">
           <Signup />
         </AnonRoute>
+        <PrivateRoute exact path="/UserProfile">
+          <UserProfile />
+        </PrivateRoute>
         <PrivateRoute exact path="/recipecreate">
           <RecipeCreate />
         </PrivateRoute>

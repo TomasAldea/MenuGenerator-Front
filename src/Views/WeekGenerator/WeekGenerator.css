@@ -1,18 +1,22 @@
-.main{
-    background-color: white;
-    display: flex;
+.main {
+  background-color: white;
+  display: flex;
 }
 .week-table {
-margin-top: 150px;
-background-color: #d4d4d4;
-border-radius: 10px;
+  margin-top: 150px;
+  background-color: white;
+  border-radius: 10px;
 }
 
-.prevent-week{
-    text-decoration: none;
-    color: black;
+.prevent-week {
+  text-decoration: none;
+  color: black;
 }
 
-.openModal{
-    cursor: pointer;
+.openModal {
+  cursor: pointer;
+}
+
+.week-days {
+  background-color: #7fcd7a;
 }

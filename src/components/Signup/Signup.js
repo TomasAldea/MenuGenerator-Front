@@ -27,42 +27,39 @@ export function Signup() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        margin: "10px auto",
-      }}
-    >
-      <label htmlFor="email">Name</label>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         name="name"
         id="name"
+        placeholder="Name"
         value={state.name}
         onChange={handleChange}
         required
       />
-      <label htmlFor="email">Email</label>
+
       <input
         type="text"
         name="email"
         id="email"
+        placeholder="Email"
         value={state.email}
         onChange={handleChange}
         required
       />
-      <label htmlFor="password">Password</label>
+
       <input
         type="password"
         name="password"
         id="password"
+        placeholder="Password"
         value={state.password}
         onChange={handleChange}
         required
       />
-      <button type="submit">Signup</button>
+      <button className="my-button" type="submit">
+        <img src="/img/checked.png " width="40" height="40"></img>
+      </button>
     </form>
   );
 }
