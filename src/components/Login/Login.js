@@ -42,8 +42,8 @@ export function Login() {
         value={state.password}
         onChange={handleChange}
       />
-      <button className="btn btn-litgh" type="submit">
-        <img src="/img/checked.png " width="40" height="40"></img>
+      <button className="btn btn-success" type="submit">
+      Loging
       </button>
     </form>
   );

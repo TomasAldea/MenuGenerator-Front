@@ -13,7 +13,6 @@ export function Navbar() {
         <Link className="navbar-brand" to="/">
           <button className="text my-button">
             <img src="/img/home.png"></img>
-            Home
           </button>
         </Link>
         {user.isLogged ? (
@@ -21,7 +20,7 @@ export function Navbar() {
             <Link className="navbar-brand" to="/UserProfile">
               <button className="text my-button">
                 <img src="/img/user.png"></img>
-                My Profile
+                Profile
               </button>
             </Link>
             <button className="text my-button">

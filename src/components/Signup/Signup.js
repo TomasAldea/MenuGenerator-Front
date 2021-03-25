@@ -57,8 +57,8 @@ export function Signup() {
         onChange={handleChange}
         required
       />
-      <button className="my-button" type="submit">
-        <img src="/img/checked.png " width="40" height="40"></img>
+      <button className="btn btn-success" type="submit">
+        Signup
       </button>
     </form>
   );
