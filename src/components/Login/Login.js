@@ -43,7 +43,7 @@ export function Login() {
         onChange={handleChange}
       />
       <button className="btn btn-success" type="submit">
-      Loging
+      Login
       </button>
     </form>
   );

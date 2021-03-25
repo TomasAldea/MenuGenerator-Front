@@ -20,7 +20,7 @@ export function WeekGenerator() {
     "Sunday",
   ];
 
-  const types = ["first", "second", "desert"];
+  const types = ["First", "Second", "Desert"];
   const [show, setShow] = React.useState(false);
   const [buttonWeek, setButtonWeek] = React.useState(true);
 
