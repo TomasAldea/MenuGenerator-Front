@@ -17,7 +17,7 @@ export function SignupSuccess() {
   React.useEffect(() => {
     setTimeout(() => {
       history.push("/");
-    }, 3000);
+    }, 500);
   }, [history]);
 
   return (

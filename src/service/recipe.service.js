@@ -11,7 +11,7 @@ export const allRecipes = () => recipeApi.get('/allrecipes')
 
 export const recipe = recipeId => recipeApi.get(`/recipe/${recipeId}`)
 
-export const editRecipe = (recipeId, recipe) => recipeApi.patch(`/recipe/${recipeId}`, recipe)
+export const editRecipe = (recipeId, recipe) => recipeApi.put(`/recipe/${recipeId}`, recipe)
 
 export const deleteRecipe = recipeId => recipeApi.delete(`/recipe/${recipeId}`)
 

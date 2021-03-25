@@ -1,5 +1,6 @@
 import React from "react";
 import { getLocalUser } from "../../../context/AuthContext.utils";
+
 import { useHistory } from "react-router-dom";
 
 export function LoginSuccess() {
@@ -13,8 +14,6 @@ export function LoginSuccess() {
   React.useEffect(() => {
     getUserInfo();
   }, []);
-
-  console.log(user)
 
   React.useEffect(() => {
     setTimeout(() => {

@@ -14,22 +14,24 @@ export function Recipe() {
   const getRecipe = async (id) => {
     const { data } = await recipeService(id);
     setRecipe(data);
-    var ing =  data.ingredients[0].split(",")
+    var ing = data.ingredients[0].split(",");
 
     setIngredients(ing);
   };
 
-   React.useEffect(() => {
+  React.useEffect(() => {
     getRecipe(recipeId);
-  }, []);
-
-  console.log("recipe", recipe)
+  }, [recipeId]);
 
   return (
     <div>
       <div className="card my-card">
         <div className="card-body">
-          <img className="card-img-top" src={recipe.image}></img>
+          <img
+            className="card-img-top"
+            alt="foodImage"
+            src={recipe.image}
+          ></img>
           <h5>{recipe.name}</h5>
           <h6>Steps to follow</h6>
           <p className="card-text">{recipe.description}</p>
@@ -40,18 +42,10 @@ export function Recipe() {
             return <li className="list-group-item">{i}</li>;
           })}
         </ul>
-        <div className="card-body"></div>
-        <div>
-      <DeleteRecipe />
-      <button className="btn btn-outline-info">
-        <Link to={`/edit/${recipeId}`}>edit</Link>
+        <button className="btn btn-outline-info">
+        <Link to="/allrecipes">Go back</Link>
       </button>
       </div>
-      </div>
-
     </div>
   );
 }
-
-// <img src="..." class="card-img-top" alt="...">
-

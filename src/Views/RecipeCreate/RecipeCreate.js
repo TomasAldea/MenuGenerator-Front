@@ -19,7 +19,6 @@ export function RecipeCreate() {
   //------function to add image------//
 
    const handleUpload = async (e) => {
-    console.log("e.target", e.target.files[0]);
     const uploadData = new FormData();
     uploadData.append("image", e.target.files[0]);
     const {data} = await uploadFileService(uploadData);
