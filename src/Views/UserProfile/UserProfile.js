@@ -24,8 +24,8 @@ export function UserProfile() {
 
   return (
     <div className="row">
-      <h1></h1>
-      {recipesCreated ? ( recipesCreated.map(function (i) {
+      <h1>Your Recipes</h1>
+      {recipesCreated ? ( recipesCreated.map(function (i) { 
         return (
           <div key={i._id} className="col-sm-6">
             <div className="card">
