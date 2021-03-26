@@ -23,7 +23,7 @@ export function UserProfile() {
   };
 
   return (
-    <div className="row">
+    <div className="padding-container row">
       <h3 className="welcome-message">My Recipes</h3>
       {recipesCreated ? ( recipesCreated.map(function (i) { 
         return (
