@@ -23,7 +23,7 @@ export function Recipe() {
   }, [recipeId]);
 
   return (
-    <div>
+    <div className="padding-container">
       <div className="card my-card">
         <div className="card-body">
         <h5>{recipe.name}</h5>

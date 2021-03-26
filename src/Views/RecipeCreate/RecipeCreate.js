@@ -46,6 +46,7 @@ export function RecipeCreate() {
   }
 
   return (
+    <div className="padding-container">
     <form className="create-recipe" onSubmit={handleSubmit}>
       <label htmlFor="name">name</label>
       <input
@@ -94,5 +95,6 @@ export function RecipeCreate() {
         <img src="/img/checked.png"  alt="checkIcon" width="40" height="40"></img>
       </button>
     </form>
+    </div>
   );
 }

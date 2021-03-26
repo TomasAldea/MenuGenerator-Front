@@ -68,6 +68,7 @@ export function RecipeEdit() {
   }
 
   return (
+    <div className="padding-container">
     <form className="create-recipe" onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
@@ -104,5 +105,6 @@ export function RecipeEdit() {
       <img src="/img/checked.png"  alt="checkIcon"></img>
       </button>
     </form>
+    </div>
   );
 }
