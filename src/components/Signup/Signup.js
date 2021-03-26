@@ -1,6 +1,7 @@
 import React from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Redirect } from "react-router-dom";
+import "./Signup.css";
 
 export function Signup() {
   const auth = React.useContext(AuthContext);
@@ -28,6 +29,9 @@ export function Signup() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div className="label-text-error animate-flicker">
+        <p>{auth.errorCatchSignup}</p>
+      </div>
       <input
         type="text"
         name="name"
@@ -37,7 +41,6 @@ export function Signup() {
         onChange={handleChange}
         required
       />
-
       <input
         type="text"
         name="email"
@@ -47,7 +50,9 @@ export function Signup() {
         onChange={handleChange}
         required
       />
-
+      <label className="label-text">
+        <small>;1 Uppercase, 1 Lowercase and 6 Characters</small>
+      </label>
       <input
         type="password"
         name="password"

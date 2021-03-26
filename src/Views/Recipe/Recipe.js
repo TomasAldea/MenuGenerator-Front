@@ -2,7 +2,6 @@ import React from "react";
 import { recipe as recipeService } from "../../service/recipe.service";
 import { useParams } from "react-router-dom";
 import "./Recipe.css";
-import { DeleteRecipe } from "../../components/DeleteRecipe/DeleteRecipe";
 import { Link } from "react-router-dom";
 
 export function Recipe() {
@@ -27,23 +26,44 @@ export function Recipe() {
     <div>
       <div className="card my-card">
         <div className="card-body">
-          <img
+        <h5>{recipe.name}</h5>
+
+          { recipe.image ? (
+            <img
+              className="card-img-top"
+              alt="foodImage"
+              src={recipe.image}
+            ></img>
+          ) : (
+            <img
             className="card-img-top"
             alt="foodImage"
-            src={recipe.image}
+            src="/img/no-image.png"
           ></img>
-          <h5>{recipe.name}</h5>
+          )
+          }
           <h6>Steps to follow</h6>
           <p className="card-text">{recipe.description}</p>
         </div>
         <h6>Ingredients</h6>
         <ul className="list-group list-group-flush">
           {ingredients.map(function (i) {
-            return <li className="list-group-item">{i}</li>;
+            return (
+              <li key={i} className="list-group-item">
+                {i}
+              </li>
+            );
           })}
         </ul>
-   
-        <Link to="/allrecipes"><img src="/img/previous.png" width="40" height="40"></img></Link>
+
+        <Link to="/allrecipes">
+          <img
+            src="/img/previous.png"
+            alt="preciusIcon"
+            width="40"
+            height="40"
+          ></img>
+        </Link>
       </div>
     </div>
   );

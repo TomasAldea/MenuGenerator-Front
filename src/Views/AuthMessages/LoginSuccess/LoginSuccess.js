@@ -27,7 +27,7 @@ export function LoginSuccess() {
   return (
     <div className="my-cont container">
       <h2 className="welcome-message">Welcome {user.name}</h2>
-      <img src="/img/week-menu.gif" alt="Italian Trulli"></img>
+      <img src="/img/week-menu.gif"  alt="Italian Trulli"></img>
     </div>
   );
 }

@@ -7,8 +7,9 @@ export function Logout() {
 
 
   return (
-    <button className="my-button" onClick={authLogout.handleLogout}>
-      <img src="/img/logout.png"></img>
+    <button className="text my-button" onClick={authLogout.handleLogout}>
+      <img src="/img/logout.png"  alt="logoutIcon"></img>
+      Logout
     </button>
   );
 }
