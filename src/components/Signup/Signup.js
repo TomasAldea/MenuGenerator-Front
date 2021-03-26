@@ -4,6 +4,9 @@ import { Redirect } from "react-router-dom";
 import "./Signup.css";
 
 export function Signup() {
+  
+  // const [redirect, setRedirect] = React.useState(false);
+
   const auth = React.useContext(AuthContext);
 
   const [state, setState] = React.useState({
@@ -11,7 +14,6 @@ export function Signup() {
     password: "",
     name: "",
   });
-  const [redirect, setRedirect] = React.useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,13 +23,13 @@ export function Signup() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await auth.handleSignup(state);
-    setRedirect(true);
   };
-  if (redirect) {
+  if (auth.redirectToHome) {
     return <Redirect to="/signupsuccess" />;
   }
 
   return (
+    <div className="padding-container">
     <form onSubmit={handleSubmit}>
       <div className="label-text-error animate-flicker">
         <p>{auth.errorCatchSignup}</p>
@@ -66,5 +68,6 @@ export function Signup() {
         Signup
       </button>
     </form>
+    </div>
   );
 }

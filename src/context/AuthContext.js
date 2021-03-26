@@ -16,6 +16,7 @@ const initialState = {
 function AuthProvider({ children }) {
   const [state, setState] = React.useState(initialState);
   const [errorMessage, setErrorMessage] = React.useState();
+  const [redirect, setRedirect] = React.useState(false);
   const [errorMessageSignup, setErrorMessageSignup] = React.useState();
 
   const handleLogin = React.useCallback(async (user) => {
@@ -24,7 +25,7 @@ function AuthProvider({ children }) {
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
     } catch (e) {
-     setErrorMessage(e.response.data.message)
+      setErrorMessage(e.response.data.message);
     }
   }, []);
 
@@ -33,13 +34,13 @@ function AuthProvider({ children }) {
       const { data: loggedUser } = await signup(user);
       saveUser(loggedUser);
       setState({ user: { ...loggedUser, isLogged: true } });
+      setRedirect(true);
     } catch (e) {
-      setErrorMessageSignup(e.response.data.message)
+      setErrorMessageSignup(e.response.data.message);
     }
   }, []);
 
   const handleLogout = React.useCallback(async () => {
-
     try {
       await logout();
       removeUser();
@@ -51,7 +52,15 @@ function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user: state.user, handleLogin, handleLogout, handleSignup, errorCatch: errorMessage, errorCatchSignup: errorMessageSignup }}
+      value={{
+        user: state.user,
+        handleLogin,
+        handleLogout,
+        handleSignup,
+        errorCatch: errorMessage,
+        errorCatchSignup: errorMessageSignup,
+        redirectToHome: redirect,
+      }}
     >
       {children}
     </AuthContext.Provider>
