@@ -19,7 +19,7 @@ export function DeleteRecipe({ recipeId, forceRender}) {
   return (
     <React.Fragment>
       <button className="my-button" onClick={handleShow}>
-      <img src="/img/delete.png"></img>
+      <img src="/img/delete.png" alt="deleteIcon"></img>
           </button>
      <Modal show={show} onHide={handleClose}>
      <Modal.Header >
@@ -34,7 +34,7 @@ export function DeleteRecipe({ recipeId, forceRender}) {
      <Modal.Footer>
 
        <Button variant="primary" onClick={handleClose}>
-       <img src="/img/previous.png" width="30" height="30"></img>
+       <img src="/img/previous.png"  alt="previousIcon" width="30" height="30"></img>
        </Button>
      </Modal.Footer>
    </Modal>

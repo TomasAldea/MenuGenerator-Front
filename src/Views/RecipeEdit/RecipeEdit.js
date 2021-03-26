@@ -101,7 +101,7 @@ export function RecipeEdit() {
         onChange={handleChange}
       />
       <button type="submit" className="btn btn-light">
-      <img src="/img/checked.png"></img>
+      <img src="/img/checked.png"  alt="checkIcon"></img>
       </button>
     </form>
   );
