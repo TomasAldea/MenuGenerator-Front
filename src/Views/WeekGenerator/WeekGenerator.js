@@ -3,9 +3,9 @@ import React from "react";
 import { getRandomRecipeByCat } from "../../service/week.service";
 import { recipe as getRecipeToModal } from "../../service/recipe.service";
 import "./WeekGenerator.css";
-import { Button,Modal } from 'react-bootstrap';
+import { Button, Modal } from "react-bootstrap";
 // import { useParams } from "react-router-dom";
- 
+
 export function WeekGenerator() {
   const weekRecipe = [];
 
@@ -24,14 +24,13 @@ export function WeekGenerator() {
   const [show, setShow] = React.useState(false);
   const [buttonWeek, setButtonWeek] = React.useState(true);
 
-
   const [week, setWeek] = React.useState([weekRecipe]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [recipe, setRecipe] = React.useState([]);
   const [ingredients, setIngredients] = React.useState([]);
-  
- // const { recipeId } = useParams();
+
+  // const { recipeId } = useParams();
 
   const generatorRecipe = async (i) => {
     var arrayWeek = [];
@@ -51,95 +50,87 @@ export function WeekGenerator() {
     arrayWeek.push(arrayDesert);
 
     setWeek(arrayWeek);
-    setButtonWeek(false)
+    setButtonWeek(false);
   };
 
+  const getRecipe = async (id) => {
+    const { data } = await getRecipeToModal(id);
+    setRecipe(data);
+    handleShow();
+    var ing = data.ingredients[0].split(",");
 
-
-const getRecipe = async (id) => {
-  const { data } = await getRecipeToModal(id);
-  setRecipe(data);
-  handleShow()
-  var ing =  data.ingredients[0].split(",")
-
-  setIngredients(ing);
-
-};
-
+    setIngredients(ing);
+  };
 
   return (
-
-    
     <div className="container week-table">
       <div className="table-responsive">
         {week.length > 1 ? (
           <table className="table align-middle">
-            <tbody >
-            <tr className="week-days">
-              {weekDays.map((day) => {
-                return <th scope="col">{day}</th>;
+            <tbody>
+              <tr className="week-days">
+                {weekDays.map((day) => {
+                  return <th scope="col">{day}</th>;
+                })}
+              </tr>
+              {week.map((dayRecipe, i) => {
+                return (
+                  <tr>
+                    <td>{types[i]}</td>
+                    {dayRecipe.map((recipeOne) => {
+                      return (
+                        <td
+                          className="openModal"
+                          onClick={() => getRecipe(recipeOne.id)}
+                        >
+                          {recipeOne.name}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                );
               })}
-            </tr>
-            {week.map((dayRecipe, i) => {
-              return (
-                <tr>
-                  <td>{types[i]}</td>
-                  {dayRecipe.map((recipeOne) => {             
-                   return <td className="openModal" onClick={() => getRecipe(recipeOne.id)}>{recipeOne.name}</td>
-                  })}
-                </tr>
-              );
-            })}
             </tbody>
           </table>
         ) : (
-          console.log("")
+          <></>
         )}
       </div>
-      
-      <div className="row">
-        
-        <div className="col-12">
 
-        </div>
+      <div className="row">
+        <div className="col-12"></div>
         {buttonWeek ? (
-                  <button className="btn btn-success" onClick={generatorRecipe}>
-                  Click Me To Create Week!
-                </button>
+          <button className="btn btn-success" onClick={generatorRecipe}>
+            Click Me To Create Week!
+          </button>
         ) : (
           <button className="btn btn-success" onClick={generatorRecipe}>
-          Click Me To New Week!
-        </button>
+            Click Me To New Week!
+          </button>
         )}
-
       </div>
-      
-   
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header >
+        <Modal.Header>
           <Modal.Title>{recipe.name}</Modal.Title>
         </Modal.Header>
-        <Modal.Body
-        >
+        <Modal.Body>
           {recipe.description}
           <div className="row">
-          <div className="col-12"><b>Ingredients:</b></div>
-          {ingredients.map(function (i) {
-            return <li className="col-6">{i}</li>;
-          })}
+            <div className="col-12">
+              <b>Ingredients:</b>
+            </div>
+            {ingredients.map(function (i) {
+              return <li className="col-6">{i}</li>;
+            })}
           </div>
         </Modal.Body>
         <Modal.Footer>
-
           <Button variant="primary" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
-
     </div>
-
-    
   );
 }

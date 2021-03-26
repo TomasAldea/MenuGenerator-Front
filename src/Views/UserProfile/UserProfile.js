@@ -24,8 +24,8 @@ export function UserProfile() {
 
   return (
     <div className="row">
-      <h1></h1>
-      {recipesCreated ? ( recipesCreated.map(function (i) {
+      <h3 className="welcome-message">My Recipes</h3>
+      {recipesCreated ? ( recipesCreated.map(function (i) { 
         return (
           <div key={i._id} className="col-sm-6">
             <div className="card">
@@ -35,12 +35,12 @@ export function UserProfile() {
                 <div className="btn-align">
                 <button className=" my-button">
                   <Link className="prevent-week" to={`/recipe/${i._id}`}>
-                    <img src="/img/details.png"></img>
+                    <img src="/img/details.png"  alt="detailIcon"></img>
                   </Link>
                 </button>
                 <button className=" btn my-button">
                   <Link to={`/edit/${i._id}`}>
-                    <img src="/img/edit.png"></img>
+                    <img src="/img/edit.png"  alt="editIcon"></img>
                   </Link>
                 </button>
                 <DeleteRecipe recipeId={i._id} forceRender={renderView} />

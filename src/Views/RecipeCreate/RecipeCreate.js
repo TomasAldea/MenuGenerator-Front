@@ -91,7 +91,7 @@ export function RecipeCreate() {
         onChange={handleUpload}
       />
       <button className="btn btn-litgh" type="submit">
-        <img src="/img/checked.png " width="40" height="40"></img>
+        <img src="/img/checked.png"  alt="checkIcon" width="40" height="40"></img>
       </button>
     </form>
   );

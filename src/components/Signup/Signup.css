@@ -1,0 +1,43 @@
+.label-text{
+    margin-left: 15px;
+    font-size: 0.700em;
+    font-family: cursive;
+    color: #036e0399;
+}
+
+.label-text-error{
+    font-size: 1.2rem;
+    align-self: center;
+    font-family: emoji;
+    color: #bb1818;
+}
+
+    @keyframes flickerAnimation {
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      @-o-keyframes flickerAnimation{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      @-moz-keyframes flickerAnimation{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      @-webkit-keyframes flickerAnimation{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      .animate-flicker {
+         -webkit-animation: flickerAnimation .3s;
+         -moz-animation: flickerAnimation .3s;
+         -o-animation: flickerAnimation .3s;
+          animation: flickerAnimation .3s;
+          animation-delay: 0;
+          animation-iteration-count: 3;
+          animation-direction: forward;
+      }

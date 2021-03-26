@@ -1,12 +1,12 @@
+
 import React from "react";
-import "./Searchbar.css"
 
 export const SearchBar = ({ query, onChange }) => {
   return (
     <input
-      className="search-bar"
+      className="input"
       type="text"
-      placeholder="Search..."
+      placeholder="Search. .."
       value={query}
       onChange={onChange}
     />

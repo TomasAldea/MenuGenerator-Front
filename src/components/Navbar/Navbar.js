@@ -12,34 +12,42 @@ export function Navbar() {
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <button className="text my-button">
-            <img src="/img/home.png"></img>
+            <img src="/img/home.png" alt="homeIcon"></img>
           </button>
         </Link>
         {user.isLogged ? (
           <React.Fragment>
             <Link className="navbar-brand" to="/UserProfile">
               <button className="text my-button">
-                <img src="/img/user.png"></img>
+                <img src="/img/user.png" alt="userIcon"></img>
                 Profile
               </button>
             </Link>
-            <button className="text my-button">
-              <Logout />
-              Logout
-            </button>
+            <Logout />
           </React.Fragment>
         ) : (
           <React.Fragment>
             <Link className="navbar-brand" to="/login">
               <button className="text my-button">
-                <img src="/img/log-in.png" width="50" height="50"></img>
-                Login
+                <img
+                  src="/img/log-in.png"
+                  alt="loginIcon"
+                  width="50"
+                  height="50"
+                ></img>
+                <small>Login</small>
               </button>
             </Link>
             <Link className="navbar-brand" to="/signup">
               <button className="text my-button">
-                <img src="/img/signup.png" width="40" height="40"></img>
-                SignUp
+                <img
+                  src="/img/add-group.png"
+                  alt="signupIcon"
+                  width="30"
+                  height="30"
+                ></img>
+
+                <small>Signup</small>
               </button>
             </Link>
           </React.Fragment>
