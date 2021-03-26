@@ -19,7 +19,7 @@ export function Recipes() {
   }, []);
 
   return (
-    <div>
+    <div className="padding-container">
       <SearchBar query={query} onChange={handleQuery} />
       <div className="row">
         {recipes
