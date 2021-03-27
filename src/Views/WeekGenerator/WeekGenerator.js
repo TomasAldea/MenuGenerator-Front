@@ -23,16 +23,15 @@ export function WeekGenerator() {
   const types = ["First", "Second", "Desert"];
   const [show, setShow] = React.useState(false);
   const [buttonWeek, setButtonWeek] = React.useState(true);
-
+  const [loading, setLoading] = React.useState(false);
   const [week, setWeek] = React.useState([weekRecipe]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [recipe, setRecipe] = React.useState([]);
   const [ingredients, setIngredients] = React.useState([]);
 
-  // const { recipeId } = useParams();
-
   const generatorRecipe = async (i) => {
+    setLoading(true)
     var arrayWeek = [];
     var arrayFirst = [];
     var arraySecond = [];
@@ -49,9 +48,15 @@ export function WeekGenerator() {
     arrayWeek.push(arraySecond);
     arrayWeek.push(arrayDesert);
 
+    setLoading(false)
+
     setWeek(arrayWeek);
     setButtonWeek(false);
   };
+
+  if (loading) {
+    return <img className="loading" src="/img/Loading2.gif" alt="Italian Trulli"></img>
+  }
 
   const getRecipe = async (id) => {
     const { data } = await getRecipeToModal(id);

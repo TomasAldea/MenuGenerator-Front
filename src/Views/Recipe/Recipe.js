@@ -26,9 +26,9 @@ export function Recipe() {
     <div className="padding-container">
       <div className="card my-card">
         <div className="card-body">
-        <h5>{recipe.name}</h5>
+          <h5>{recipe.name}</h5>
 
-          { recipe.image ? (
+          {recipe.image ? (
             <img
               className="card-img-top"
               alt="foodImage"
@@ -36,12 +36,11 @@ export function Recipe() {
             ></img>
           ) : (
             <img
-            className="card-img-top"
-            alt="foodImage"
-            src="/img/no-image.png"
-          ></img>
-          )
-          }
+              className="card-img-top"
+              alt="foodImage"
+              src="/img/no-image.png"
+            ></img>
+          )}
           <h6>Steps to follow</h6>
           <p className="card-text">{recipe.description}</p>
         </div>

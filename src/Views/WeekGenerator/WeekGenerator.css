@@ -20,3 +20,15 @@
 .week-days {
   background-color: #7fcd7a;
 }
+
+.loading{
+  padding-left: 35%;
+}
+
+@media (max-width: 768px){ 
+
+  .loading{
+    padding-left: 0%;
+  }
+
+}

@@ -26,7 +26,7 @@ export function Login() {
   }
 
   return (
-    
+    <div className="padding-container">
     <form onSubmit={handleSubmit}>
       <div className="label-text-error animate-flicker"><p>{auth.errorCatch}</p></div>
       <input
@@ -51,5 +51,6 @@ export function Login() {
       Login
       </button>
     </form>
+    </div>
   );
 }
