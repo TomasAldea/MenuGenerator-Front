@@ -15,14 +15,16 @@ import PrivateRoute from "./components/Routes/PrivateRoute";
 import { LoginSuccess } from "./Views/AuthMessages/LoginSuccess/LoginSuccess";
 import { SignupSuccess } from "./Views/AuthMessages/SignupSuccess/SignupSuccess";
 import { UserProfile } from "./Views/UserProfile/UserProfile";
-// import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
-// import { NotFound } from "./Views/NotFound/NotFound";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import { NotFound } from "./Views/NotFound/NotFound";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <Switch>          <Route exact path="/">
+      <ErrorBoundary>
+        <Switch>
+          <Route exact path="/">
             <Home />
           </Route>
           <PrivateRoute exact path="/loginsuccess">
@@ -55,15 +57,13 @@ function App() {
           <PrivateRoute exact path="/WeekGenerator">
             <WeekGenerator />
           </PrivateRoute>
-      </Switch>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </ErrorBoundary>
     </div>
   );
 }
 
 export default App;
-
-/*
-          <Route path="*">
-            <NotFound />
-          </Route>
-*/
