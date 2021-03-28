@@ -46,7 +46,7 @@ function AuthProvider({ children }) {
       removeUser();
       setState({ user: defaultUser() });
     } catch (e) {
-      console.error(e);
+      return e
     }
   }, []);
 
