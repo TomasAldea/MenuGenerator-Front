@@ -5,7 +5,6 @@
 .all-cards {
   box-shadow: 5px 5px 9px 0px;
   background: rgb(255,255,255);
-  background: linear-gradient(256deg, rgba(255,255,255,1) 58%, rgba(70,252,118,1) 100%);
   display: inline-flex;
 }
 
@@ -64,7 +63,6 @@ a:active {
     box-shadow: 5px 5px 9px 0px;
     display: grid;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 55%, rgba(45,253,62,1) 100%);
   }
   
   .text-card-icon {
