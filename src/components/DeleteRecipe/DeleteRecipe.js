@@ -1,6 +1,8 @@
 import React from "react";
 import { deleteRecipe } from "../../service/recipe.service";
 import { Button,Modal } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+
 
 export function DeleteRecipe({ recipeId, forceRender}) {
   const [show, setShow] = React.useState(false);
@@ -13,8 +15,6 @@ export function DeleteRecipe({ recipeId, forceRender}) {
      handleClose()
      forceRender() // actualizo el estado de userProfile para ver los cambios
   };
-
-
 
   return (
     <React.Fragment>
@@ -33,11 +33,16 @@ export function DeleteRecipe({ recipeId, forceRender}) {
      </Modal.Body>
      <Modal.Footer>
 
-       <Button variant="primary" onClick={handleClose}>
-       <img src="/img/previous.png"  alt="previousIcon" width="30" height="30"></img>
+       <Button variant="light" onClick={handleClose}>
+       <img src="/img/return.png"  alt="previousIcon" width="30" height="30"></img>
        </Button>
      </Modal.Footer>
    </Modal>
    </React.Fragment>
   );
+}
+
+DeleteRecipe.propTypes = {
+recipeId: PropTypes.string,
+forceRender: PropTypes.func,
 }

@@ -35,9 +35,10 @@ export function RecipeEdit() {
       name: data.name,
       ingredients: data.ingredients,
       description: data.description,
-      category: data.category,
+      picture: data.filename,
     });
-  };
+return   };
+
 
   React.useEffect(() => {
     getRecipe(recipeId);
@@ -46,9 +47,9 @@ export function RecipeEdit() {
   //----- select options -----//
 
   const options = [
-    { value: "first", label: "first" },
-    { value: "second", label: "second" },
-    { value: "desert", label: "desert" },
+    { value: "first", label: "First" },
+    { value: "second", label: "Second" },
+    { value: "desert", label: "Desert" },
   ];
 
   //----- form states and handlefunctions -----//
@@ -103,7 +104,7 @@ export function RecipeEdit() {
           value={state.description}
           onChange={handleChange}
         />
-        <label htmlFor="file">file</label>
+        <label htmlFor="file">File</label>
 
         <input
           type="file"
@@ -113,7 +114,7 @@ export function RecipeEdit() {
           onChange={handleUpload}
         />
         <button type="submit" className="btn btn-light">
-          <img src="/img/checked.png" alt="checkIcon"></img>
+          <img src="/img/checked.png" alt="checkIcon"  width="40" height="40"></img>
         </button>
       </form>
     </div>

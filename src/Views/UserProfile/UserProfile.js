@@ -30,8 +30,10 @@ export function UserProfile() {
           <div key={i._id} className="col-sm-6">
             <div className="card">
               <div className="all-cards card-body">
-                <h5 className="card-title">{i.name}</h5>
-                <p className="card-text card-title">Category: {i.category}</p>
+              <div className="text-card-icon">
+                <h5 >{i.name}</h5>
+                <p >Category: {i.category}</p>
+                </div>
                 <div className="btn-align">
                 <button className=" my-button">
                   <Link className="prevent-week" to={`/recipe/${i._id}`}>
@@ -56,3 +58,4 @@ export function UserProfile() {
     </div>
   );
 }
+

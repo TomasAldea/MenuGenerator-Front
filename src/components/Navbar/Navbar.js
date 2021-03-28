@@ -20,7 +20,6 @@ export function Navbar() {
             <Link className="navbar-brand" to="/UserProfile">
               <button className="text my-button">
                 <img src="/img/user.png" alt="userIcon"></img>
-                Profile
               </button>
             </Link>
             <Logout />
@@ -35,7 +34,6 @@ export function Navbar() {
                   width="50"
                   height="50"
                 ></img>
-                <small>Login</small>
               </button>
             </Link>
             <Link className="navbar-brand" to="/signup">
@@ -47,7 +45,7 @@ export function Navbar() {
                   height="30"
                 ></img>
 
-                <small>Signup</small>
+               
               </button>
             </Link>
           </React.Fragment>

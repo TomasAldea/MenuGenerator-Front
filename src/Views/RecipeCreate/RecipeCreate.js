@@ -48,7 +48,7 @@ export function RecipeCreate() {
   return (
     <div className="padding-container">
     <form className="create-recipe" onSubmit={handleSubmit}>
-      <label htmlFor="name">name</label>
+      <label htmlFor="name">Name</label>
       <input
         type="text"
         name="name"
