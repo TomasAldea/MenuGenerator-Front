@@ -21,7 +21,7 @@ export function Home() {
             <div className="about-us-container">
               <button className="my-button">
                 <Link className="prevent" to="/recipecreate">
-                <h2 className="about-us-text">Create New recipe</h2>
+                <h2 className="about-us-text">Create New Recipe</h2>
                 </Link>
               </button>
               <button className="my-button">

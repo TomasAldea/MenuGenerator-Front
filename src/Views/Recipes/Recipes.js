@@ -3,6 +3,7 @@ import { allRecipes } from "../../service/recipe.service";
 import "./Recipes.css";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../../components/Searchbar/Searchbar";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export function Recipes() {
   const [recipes, setRecipes] = React.useState([]);
@@ -30,22 +31,37 @@ export function Recipes() {
             return (
               <div key={i._id} className="col-sm-6">
                 <div className="card">
-                  <Link className="prevent-week" to={`/recipe/${i._id}`}>
+                  <Link className="prevent-card" to={`/recipe/${i._id}`}>
                     <div className="all-cards card-body">
-                      <h5 className="card-title">{i.name}</h5>
-                      <p className="card-text card-title">
-                        Category: {i.category}
-                      </p>
-                      <div className="btn-details">
-                        <button className="text btn my-button">Details</button>
-                        <img src="/img/details.png" alt="detailIcon"></img>
+                      {i.image ? (
+                        <img
+                          className="image-card"
+                          alt="foodImage"
+                          src={i.image}
+                        ></img>
+                      ) : (
+                        <img
+                          className="image-card"
+                          alt="foodImage"
+                          src="/img/no-image.png"
+                        ></img>
+                      )}
+                      <div className="text-card-icon">
+                        <h5>{i.name}</h5>
+                        <p>Category: {i.category}</p>
+                      </div>
+                      <div className="more-info-cards">
+                        <img src="/img/menu.png" alt="detailIcon"></img>
                       </div>
                     </div>
                   </Link>
+                 
                 </div>
+                
               </div>
             );
           })}
+          <ScrollToTop/>
       </div>
     </div>
   );

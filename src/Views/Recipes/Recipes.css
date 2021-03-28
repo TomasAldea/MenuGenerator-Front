@@ -1,23 +1,79 @@
 .card {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  min-height: 10rem;
 }
 .all-cards {
+  box-shadow: 5px 5px 9px 0px;
+  background: rgb(255,255,255);
+  background: linear-gradient(256deg, rgba(255,255,255,1) 58%, rgba(70,252,118,1) 100%);
+  display: inline-flex;
+}
+
+.card-title {
+  color: black;
+  letter-spacing: 5px;
+  font-family: fangsong;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
+
+.btn-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-card-icon {
+  display: grid;
+  align-items: center;
+}
+
+.prevent-card {
+  text-decoration: none;
+  display: contents;
+}
+
+.image-card {
+    max-width: 16rem;
+    max-height: 12rem;
+  align-self: center;
+  margin-right: 4%;
+  border-radius: 13px;
+  box-shadow: 1px 2px 6px;
+}
+
+.more-info-cards {
+  margin-top: 20%;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .image-card {
+    align-self: center;
+    align-self: unset;
+    min-width: 18rem;
+    min-height: 13rem;
+    box-shadow: 1px 2px 6px;
+  }
+
+  .all-cards {
     box-shadow: 5px 5px 9px 0px;
-    background-image: url("./background-recipes.jpg");
-}
-
-.card-title{
-    color:black;
-    letter-spacing: 5px;
-    font-family: 'blackboard';
-}
-
-a, a:visited, a:hover, a:active {
-    color: inherit;
+    display: grid;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 55%, rgba(45,253,62,1) 100%);
+  }
+  
+  .text-card-icon {
+    text-align: center;
+    padding-top: 7%;
   }
 
-  .btn-details{
-      display: flex;
-      justify-content: space-between;
+  .more-info-cards {
+    margin-top: 1%;
+    margin-left: auto;
   }
-
+}

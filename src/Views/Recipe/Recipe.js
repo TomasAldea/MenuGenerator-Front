@@ -26,7 +26,7 @@ export function Recipe() {
     <div className="padding-container">
       <div className="card my-card">
         <div className="card-body">
-          <h5>{recipe.name}</h5>
+          <h5 className="card-name">{recipe.name}</h5>
 
           {recipe.image ? (
             <img
@@ -41,14 +41,16 @@ export function Recipe() {
               src="/img/no-image.png"
             ></img>
           )}
+          <br></br><br></br>
           <h6>Steps to follow</h6>
           <p className="card-text">{recipe.description}</p>
+          <h6>Ingredients</h6>
         </div>
-        <h6>Ingredients</h6>
-        <ul className="list-group list-group-flush">
+
+        <ul className="row col-12">
           {ingredients.map(function (i) {
             return (
-              <li key={i} className="list-group-item">
+              <li key={i} className="col-6">
                 {i}
               </li>
             );
@@ -57,7 +59,7 @@ export function Recipe() {
 
         <Link to="/allrecipes">
           <img
-            src="/img/previous.png"
+            src="/img/return.png"
             alt="preciusIcon"
             width="40"
             height="40"
