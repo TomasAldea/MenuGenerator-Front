@@ -47,7 +47,7 @@ export function WeekGenerator() {
     arrayWeek.push(arrayFirst);
     arrayWeek.push(arraySecond);
     arrayWeek.push(arrayDesert);
-
+    
     setLoading(false)
 
     setWeek(arrayWeek);
