@@ -124,6 +124,7 @@ export function WeekGenerator() {
           <Modal.Title>{recipe.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <img className="image-card" src={recipe.image}></img>
           {recipe.description}
           <div className="row">
             <div className="col-12">
