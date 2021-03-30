@@ -37,12 +37,13 @@ a:active {
 }
 
 .image-card {
-    max-width: 16rem;
-    max-height: 12rem;
+  max-width: 16rem;
+  max-height: 10.5rem;
   align-self: center;
   margin-right: 4%;
   border-radius: 13px;
   box-shadow: 1px 2px 6px;
+  min-height: 10rem;
 }
 
 .more-info-cards {
