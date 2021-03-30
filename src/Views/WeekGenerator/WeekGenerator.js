@@ -55,7 +55,11 @@ export function WeekGenerator() {
   };
 
   if (loading) {
-    return <img className="loading" src="/img/Loading2.gif" alt="Italian Trulli"></img>
+    return (
+      <div className="loading">
+        <img src="/img/week-menu.gif" alt="Italian Trulli"></img>
+      </div>
+    )
   }
 
   const getRecipe = async (id) => {
