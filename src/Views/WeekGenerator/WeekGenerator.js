@@ -125,24 +125,24 @@ export function WeekGenerator() {
         </Modal.Header>
         <Modal.Body>
           {recipe.image ? (
-            <div >
-            <img
-              
-              alt="foodImage"
-              src={recipe.image}
-            ></img>
+            <div>
+              <img
+                className="image-card"
+                alt="foodImage"
+                src={recipe.image}
+              ></img>
             </div>
           ) : (
             <div>
-            <img
-              className="image-card"
-              alt="foodImage"
-              src="/img/no-image.png"
-            ></img>
+              <img
+                className="image-card"
+                alt="foodImage"
+                src="/img/no-image.png"
+              ></img>
             </div>
           )}
           <div className="row">
-          {recipe.description}
+            {recipe.description}
 
             <div className="col-12">
               <b>Ingredients:</b>
