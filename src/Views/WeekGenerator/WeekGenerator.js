@@ -31,7 +31,7 @@ export function WeekGenerator() {
   const [ingredients, setIngredients] = React.useState([]);
 
   const generatorRecipe = async (i) => {
-    setLoading(true)
+    setLoading(true);
     var arrayWeek = [];
     var arrayFirst = [];
     var arraySecond = [];
@@ -47,8 +47,8 @@ export function WeekGenerator() {
     arrayWeek.push(arrayFirst);
     arrayWeek.push(arraySecond);
     arrayWeek.push(arrayDesert);
-    
-    setLoading(false)
+
+    setLoading(false);
 
     setWeek(arrayWeek);
     setButtonWeek(false);
@@ -59,7 +59,7 @@ export function WeekGenerator() {
       <div className="loading">
         <img src="/img/week-menu.gif" alt="Italian Trulli"></img>
       </div>
-    )
+    );
   }
 
   const getRecipe = async (id) => {
@@ -124,8 +124,26 @@ export function WeekGenerator() {
           <Modal.Title>{recipe.name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {recipe.description}
+          {recipe.image ? (
+            <div >
+            <img
+              
+              alt="foodImage"
+              src={recipe.image}
+            ></img>
+            </div>
+          ) : (
+            <div>
+            <img
+              className="image-card"
+              alt="foodImage"
+              src="/img/no-image.png"
+            ></img>
+            </div>
+          )}
           <div className="row">
+          {recipe.description}
+
             <div className="col-12">
               <b>Ingredients:</b>
             </div>
